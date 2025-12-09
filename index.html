@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO -->
+  <title>Igor Alves | Mentoria de Treinos</title>
+  <meta name="description"
+    content="Conquiste a sua melhor versão com treinos individualizados. Mentoria online com Igor Alves." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div id="app">
+    <header class="header">
+      <nav class="navbar container">
+        <a href="#" class="logo">IGOR <span>ALVES</span></a>
+        <div class="menu-toggle" id="mobile-menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+        <ul class="nav-list">
+          <li><a href="#mentoria">Mentoria</a></li>
+          <li><a href="#sobre">Sobre mim</a></li>
+          <li><a href="#iap">IAP</a></li>
+          <li><a href="#faq">FAQS</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section id="home" class="hero">
+        <div class="hero-bg-glow glow-blob" style="top:20%; left:20%;"></div>
+        <div class="glow-spotlight"></div>
+
+        <div class="container hero-grid">
+          <div class="hero-text">
+            <h1 class="fade-in-up">Conquiste a sua <span class="highlight-red">melhor versão</span> e transforme seu
+              corpo</h1>
+            <p class="fade-in-up delay-1">Garanta sua ficha de treinos feita de forma totalmente individualizada,
+              garantindo os melhores resultados para o seu corpo e objetivo.</p>
+            <div class="hero-cta fade-in-up delay-2">
+              <a href="#contact" class="btn btn-primary">Saber Mais</a>
+            </div>
+          </div>
+          <div class="hero-img-wrapper fade-in-right">
+            <!-- Placeholder for Main Image -->
+            <div class="hero-img"
+              style="background: url('public/images/teste.png') no-repeat center/cover; border:1px solid rgba(255,255,255,0.1);">
+            </div>
+          </div>
+        </div>
+
+        <a href="#mentoria" class="hero-arrow">
+          &#8595;
+        </a>
+      </section>
+
+      <!-- Benefícios / Pra quem é -->
+      <section id="mentoria" class="who-is-section section-padding">
+        <div class="glow-blob"
+          style="top:50%; left:50%; transform:translate(-50%,-50%); opacity:0.2; width:600px; height:600px;"></div>
+
+        <div class="container who-is-container fade-in-up">
+          <h2 class="who-is-title">A mentoria é voltada para pessoas que estão em busca de:</h2>
+
+          <div class="rotating-text-wrapper">
+            <div class="rotating-text-content">
+              <span class="rotating-word">Ganhar Massa Muscular</span>
+              <span class="rotating-word">Perder Gordura</span>
+              <span class="rotating-word">Ser Mais Saudável</span>
+            </div>
+          </div>
+
+          <p class="who-is-description">
+            Com acompanhamento personalizado, analiso seu perfil considerando saúde, hábitos e rotina para criar o plano
+            perfeito para você atingir seus objetivos de forma definitiva.
+          </p>
+
+          <a href="#contact" class="btn btn-primary">Faça parte do time</a>
+        </div>
+      </section>
+
+
+
+      <!-- Social Proof (Testimonials) -->
+      <section id="social-proof" class="testimonials-section section-padding">
+        <div class="testimonial-glow"></div>
+        <div class="container">
+          <div class="section-header text-center mb-5 fade-in-up">
+            <h3 class="display-5 fw-bold testimonial-title">Veja o que as pessoas dizem sobre a consultoria.</h3>
+          </div>
+
+          <div class="testimonial-carousel fade-in-up delay-1">
+            <button class="carousel-btn prev-btn" id="prevTestimonialBtn">&#10094;</button>
+
+            <div class="carousel-track-container">
+              <ul class="carousel-track" id="testimonials-track">
+
+                <!-- Slide 1 -->
+                <li class="carousel-slide current-slide">
+                  <div class="testimonial-card">
+                    <div class="before-after-container">
+                      <div class="ba-img"
+                        style="background-image: url('https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=600&auto=format&fit=crop');">
+                        <span class="ba-label">Antes</span>
+                      </div>
+                      <div class="ba-img"
+                        style="background-image: url('https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=600&auto=format&fit=crop');">
+                        <span class="ba-label">Depois</span>
+                      </div>
+                    </div>
+                    <div class="testimonial-content">
+                      <p class="quote">"O método do Igor mudou completamente minha visão sobre treino. Resultados reais
+                        em 3 meses!"</p>
+                      <div class="student-info">
+                        <h4>Carlos Silva</h4>
+                        <span>Perda de Gordura</span>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+
+                <!-- Slide 2 -->
+                <li class="carousel-slide">
+                  <div class="testimonial-card">
+                    <div class="before-after-container">
+                      <div class="ba-img"
+                        style="background-image: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=600&auto=format&fit=crop');">
+                        <span class="ba-label">Antes</span>
+                      </div>
+                      <div class="ba-img"
+                        style="background-image: url('https://images.unsplash.com/photo-1574680096141-1cddd32e04ca?q=80&w=600&auto=format&fit=crop');">
+                        <span class="ba-label">Depois</span>
+                      </div>
+                    </div>
+                    <div class="testimonial-content">
+                      <p class="quote">"Consegui ganhar massa muscular como nunca antes. A periodização faz toda a
+                        diferença."</p>
+                      <div class="student-info">
+                        <h4>Rafael Souza</h4>
+                        <span>Hipertrofia</span>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+
+                <!-- Slide 3 -->
+                <li class="carousel-slide">
+                  <div class="testimonial-card">
+                    <div class="before-after-container">
+                      <div class="ba-img"
+                        style="background-image: url('https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?q=80&w=600&auto=format&fit=crop');">
+                        <span class="ba-label">Antes</span>
+                      </div>
+                      <div class="ba-img"
+                        style="background-image: url('https://images.unsplash.com/photo-1626887590823-64a8877bc957?q=80&w=600&auto=format&fit=crop');">
+                        <span class="ba-label">Depois</span>
+                      </div>
+                    </div>
+                    <div class="testimonial-content">
+                      <p class="quote">"Energia dobrada e corpo definido. O suporte é incrível, recomendo demais!"</p>
+                      <div class="student-info">
+                        <h4>Lucas Mendes</h4>
+                        <span>Definição</span>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+
+              </ul>
+            </div>
+
+            <button class="carousel-btn next-btn" id="nextTestimonialBtn">&#10095;</button>
+
+            <div class="carousel-nav" id="testimonialNav">
+              <button class="carousel-indicator current-slide"></button>
+              <button class="carousel-indicator"></button>
+              <button class="carousel-indicator"></button>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Benefits Timeline Section -->
+      <section id="benefits" class="timeline-section section-padding">
+        <div class="container">
+          <div class="section-header text-start mb-5 fade-in-up">
+            <h2 class="display-4 fw-bold">Vantagens do método</h2>
+            <p class="text-muted">Resultados esperados e benefícios tangíveis para sua vida.</p>
+          </div>
+
+          <div class="timeline-wrapper">
+            <!-- Vertical Line -->
+            <div class="timeline-line-container">
+              <div class="timeline-line-bg"></div>
+              <div class="timeline-line-progress"></div>
+            </div>
+
+            <!-- Item 1 -->
+            <div class="timeline-item fade-in-up">
+              <div class="timeline-marker">
+                <div class="timeline-dot"></div>
+              </div>
+              <div class="timeline-content-grid">
+                <div class="timeline-title-col">
+                  <h3>Corpo Estético</h3>
+                </div>
+                <div class="timeline-card-col">
+                  <div class="timeline-card">
+                    <div class="timeline-img"
+                      style="background-image: url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=800&auto=format&fit=crop');">
+                    </div>
+                    <div class="timeline-text">
+                      <h4>Hipertrofia e Definição</h4>
+                      <p>Conquiste um físico harmônico e definido através de treinos periodizados especificamente para
+                        sua estrutura corporal.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="timeline-item fade-in-up">
+              <div class="timeline-marker">
+                <div class="timeline-dot"></div>
+              </div>
+              <div class="timeline-content-grid">
+                <div class="timeline-title-col">
+                  <h3>Mais Saúde</h3>
+                </div>
+                <div class="timeline-card-col">
+                  <div class="timeline-card">
+                    <div class="timeline-img"
+                      style="background-image: url('https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?q=80&w=800&auto=format&fit=crop');">
+                    </div>
+                    <div class="timeline-text">
+                      <h4>Energia e Disposição</h4>
+                      <p>Melhore sua qualidade de vida, sono e disposição diária com uma rotina de exercícios
+                        equilibrada e sustentável.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="timeline-item fade-in-up">
+              <div class="timeline-marker">
+                <div class="timeline-dot"></div>
+              </div>
+              <div class="timeline-content-grid">
+                <div class="timeline-title-col">
+                  <h3>Rotina Eficiente</h3>
+                </div>
+                <div class="timeline-card-col">
+                  <div class="timeline-card">
+                    <div class="timeline-img"
+                      style="background-image: url('https://images.unsplash.com/photo-1550345332-09e3ac93dd09?q=80&w=800&auto=format&fit=crop');">
+                    </div>
+                    <div class="timeline-text">
+                      <h4>Treinos Otimizados</h4>
+                      <p>Não perca tempo na academia. Treinos focados e intensos que se encaixam na sua agenda,
+                        maximizando resultados.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Passo a Passo -->
+      <section class="steps-section section-padding">
+        <div class="container">
+          <div class="steps-header text-center fade-in-up">
+            <h2>Passo a passo</h2>
+            <p>Para contratar</p>
+          </div>
+
+          <div class="steps-grid fade-in-up delay-1">
+            <!-- Step 1 -->
+            <div class="step-card">
+              <div class="step-number-container">
+                <div class="step-circle-pulse"></div>
+                <div class="step-number">1</div>
+              </div>
+              <h3>Escolha o plano</h3>
+              <p>30, 90 ou 180 dias de acompanhamento. 1 planilha para cada 30 dias.</p>
+              <div class="step-dots">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+              </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="step-card">
+              <div class="step-number-container">
+                <div class="step-circle-pulse"></div>
+                <div class="step-number">2</div>
+              </div>
+              <h3>Faça o pagamento</h3>
+              <p>Pague com cartão de crédito a vista ou parcele em até 6 vezes.</p>
+              <div class="step-dots">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+              </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="step-card">
+              <div class="step-number-container">
+                <div class="step-circle-pulse"></div>
+                <div class="step-number">3</div>
+              </div>
+              <h3>Preencha o questionário</h3>
+              <p>Após a confirmação do pagamento você vai receber o questionário de avaliação.</p>
+              <div class="step-dots">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+              </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="step-card">
+              <div class="step-number-container">
+                <div class="step-circle-pulse"></div>
+                <div class="step-number">4</div>
+              </div>
+              <h3>Aguarde a planilha</h3>
+              <p>Em até 7 dias após o recebimento das suas respostas o seu treino estará pronto.</p>
+              <div class="step-dots">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+              </div>
+            </div>
+
+            <!-- Step 5 -->
+            <div class="step-card">
+              <div class="step-number-container">
+                <div class="step-circle-pulse"></div>
+                <div class="step-number">5</div>
+              </div>
+              <h3>Acesse o app</h3>
+              <p>Enquanto aguarda a planilha ficar pronta você já terá acesso a todo o material.</p>
+              <div class="step-dots">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- Sobre Mim -->
+      <section id="sobre" class="about section-padding">
+        <div class="container about-grid">
+          <div class="about-img-container fade-in-right">
+            <!-- Placeholder for Igor's photo -->
+            <div class="hero-img"
+              style="background: url('https://placehold.co/400x500/111/444?text=FOTO+DO+IGOR') no-repeat center/cover; min-height:400px;">
+            </div>
+          </div>
+          <div class="about-text fade-in-left">
+            <h2>Sobre mim</h2>
+            <p>Olá, eu sou o <strong>Igor Alves</strong>, tenho 23 anos e sou estudante de Educação Física.</p>
+            <br>
+            <p>Pratico musculação há vários anos e, com minha experiência, comecei a oferecer mentoria de treinos
+              personalizados.</p>
+            <br>
+            <p>Meu objetivo é ajudar você a alcançar suas metas de forma segura e eficiente, seja para ganhar massa
+              muscular, melhorar o condicionamento ou ter mais disposição no dia a dia.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Minha Evolução (Carousel) -->
+      <section class="evolution-section section-padding">
+        <div class="container">
+          <h2 class="section-title text-center fade-in-up">Minha Evolução</h2>
+
+          <div class="carousel-container fade-in-up">
+            <button class="carousel-nav nav-prev" id="prevBtn">&#10094;</button>
+            <div class="carousel-track" id="track">
+              <!-- Card 1 -->
+              <div class="carousel-card">
+                <div class="evolution-card-inner">
+                  <!-- Simulate Before/After image with placeholder -->
+                  <img src="https://placehold.co/900x400/0d1b3e/FFF?text=Evolução+1:+Antes+x+Depois" alt="Evolução"
+                    class="evolution-img-full">
+                </div>
+              </div>
+              <!-- Card 2 -->
+              <div class="carousel-card">
+                <div class="evolution-card-inner">
+                  <img src="https://placehold.co/900x400/0d1b3e/FFF?text=Evolução+2:+Costas" alt="Evolução"
+                    class="evolution-img-full">
+                </div>
+              </div>
+            </div>
+            <button class="carousel-nav nav-next" id="nextBtn">&#10095;</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Por que escolher -->
+      <section class="why-choose section-padding">
+        <div class="container">
+          <h2 class="section-title text-center" style="margin-bottom:60px;">Por que escolher a minha mentoria?</h2>
+
+          <div class="features-grid">
+            <div class="feature-item fade-in-up delay-1">
+              <div class="icon-emoji" style="font-size:3rem; margin-bottom:15px;">🏋️‍♂️</div>
+              <h3>Treino personalizado</h3>
+              <p>Programas de treino totalmente personalizados, criados especialmente para atender às suas metas.</p>
+            </div>
+            <div class="feature-item fade-in-up delay-2">
+              <div class="icon-emoji" style="font-size:3rem; margin-bottom:15px;">🎧</div>
+              <h3>Suporte diário</h3>
+              <p>Acompanhamento necessário em cada fase do seu progresso, com dicas e motivação.</p>
+            </div>
+            <div class="feature-item fade-in-up delay-3">
+              <div class="icon-emoji" style="font-size:3rem; margin-bottom:15px;">📅</div>
+              <h3>Avaliações mensais</h3>
+              <p>Avaliações detalhadas para analisar seu desempenho e ajustar seus treinos.</p>
+            </div>
+          </div>
+
+          <center style="margin-top:50px;">
+            <a href="#contact" class="btn btn-primary btn-large">Começar Agora</a>
+          </center>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section id="faq" class="faq section-padding">
+        <div class="container">
+          <h2 class="section-title text-center" style="margin-bottom:50px;">Perguntas frequentes</h2>
+          <div class="faq-list fade-in-up">
+            <details class="faq-item">
+              <summary>Quanto custa?</summary>
+              <div class="faq-content">
+                <p>Entre em contato para consultar os planos e valores atualizados.</p>
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary>Qual é o tempo de duração da mentoria?</summary>
+              <div class="faq-content">
+                <p>A renovação pode ser mensal, trimestral ou semestral, dependendo do plano escolhido.</p>
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary>Preciso já ter experiência com exercícios?</summary>
+              <div class="faq-content">
+                <p>Não! A mentoria atende desde iniciantes até avançados.</p>
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary>Como funciona o acompanhamento?</summary>
+              <div class="faq-content">
+                <p>Todo o suporte é feito via WhatsApp com respostas rápidas e ajustes sempre que necessário.</p>
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary>Como faço para começar?</summary>
+              <div class="faq-content">
+                <p>Clique no botão abaixo e preencha o formulário de anamnese inicial.</p>
+              </div>
+            </details>
+          </div>
+
+          <div class="text-center" style="margin-top:40px;">
+            <h3>Possui mais alguma dúvida?</h3>
+            <a href="#" class="btn btn-primary" style="margin-top:20px;">Entre em contato</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Final Removed to match image style which ends after FAQ more simply, but keeping footer -->
+
+    </main>
+
+    <footer class="footer">
+      <div class="container text-center">
+        <p class="credits" style="color: #444; font-size: 0.8rem;">Desenvolvido por <a href="#"
+            style="color:#666;">Victoralsp</a></p>
+      </div>
+    </footer>
+  </div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
