@@ -215,6 +215,12 @@ h2 {
   color: var(--primary-color);
 }
 
+.navbar img {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+}
+
 .nav-list {
   display: flex;
   gap: 40px;
@@ -245,7 +251,7 @@ h2 {
   background: var(--text-main);
 }
 
-/* Hero Section */
+/* Hero Section - Modern Vibrant Design */
 .hero {
   min-height: 100vh;
   display: flex;
@@ -254,17 +260,332 @@ h2 {
   position: relative;
   overflow: hidden;
   padding-top: var(--header-height);
-  text-align: center;
+  background: linear-gradient(135deg, #000308 0%, #000a1a 50%, #000514 100%);
 }
 
-/* Updated Arrow - Blue with Shadow */
+/* Background Gradient Overlay */
+.hero-gradient-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(circle at 20% 50%, rgba(57, 100, 200, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 50%, rgba(93, 139, 244, 0.15) 0%, transparent 50%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Glow Effects */
+.hero-glow-left {
+  position: absolute;
+  top: 20%;
+  left: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(57, 100, 200, 0.3) 0%, transparent 70%);
+  filter: blur(80px);
+  z-index: 0;
+  pointer-events: none;
+  animation: pulse-glow 4s ease-in-out infinite;
+}
+
+.hero-glow-right {
+  position: absolute;
+  top: 30%;
+  right: -10%;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(93, 139, 244, 0.25) 0%, transparent 70%);
+  filter: blur(100px);
+  z-index: 0;
+  pointer-events: none;
+  animation: pulse-glow 4s ease-in-out infinite 2s;
+}
+
+@keyframes pulse-glow {
+
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+/* Hero Content Grid */
+.hero-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  padding: 60px 0;
+}
+
+/* Left: Text Content */
+.hero-text {
+  text-align: left;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.15;
+  color: #ffffff;
+  margin-bottom: 30px;
+  letter-spacing: -1px;
+}
+
+/* Blue Gradient Text */
+.text-gradient-blue {
+  background: linear-gradient(135deg, #3964c8 0%, #5d8bf4 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  font-weight: 900;
+  text-shadow: 0 0 40px rgba(57, 100, 200, 0.5);
+  animation: shimmer-blue 3s linear infinite;
+  background-size: 200% auto;
+}
+
+@keyframes shimmer-blue {
+  0% {
+    background-position: 0% center;
+  }
+
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.hero-subtitle {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 40px;
+  max-width: 600px;
+}
+
+/* CTA Section */
+.hero-cta {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: flex-start;
+}
+
+.btn-hero-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 40px;
+  background: linear-gradient(135deg, #3964c8 0%, #2952a3 100%);
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    0 10px 30px rgba(57, 100, 200, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-hero-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s;
+}
+
+.btn-hero-primary:hover::before {
+  left: 100%;
+}
+
+.btn-hero-primary:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 15px 40px rgba(57, 100, 200, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.hero-price {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+}
+
+.hero-price strong {
+  color: #5d8bf4;
+  font-weight: 700;
+}
+
+/* Right: Image Container */
+.hero-image-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 600px;
+  perspective: 1000px;
+}
+
+/* Remove background glows - they are now on the image */
+.hero-image-glow {
+  display: none;
+}
+
+/* Image Wrapper - minimal styling */
+.hero-image-wrapper {
+  position: relative;
+  z-index: 3;
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+  /* animation: float-3d 6s ease-in-out infinite; */
+}
+
+/* Subtle floating animation for 3D effect */
+@keyframes float-3d {
+
+  0%,
+  100% {
+    transform: translateY(0px) translateZ(0px);
+  }
+
+  50% {
+    transform: translateY(-10px) translateZ(10px);
+  }
+}
+
+.hero-image-wrapper:hover {
+  transform: translateZ(20px) scale(1.02);
+  animation-play-state: paused;
+}
+
+/* Image with multiple drop-shadows for 3D glow effect */
+.hero-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 500px;
+  border-radius: 20px;
+  transform: scaleX(-1);
+  position: relative;
+  z-index: 1;
+
+  /* Multiple filters for premium look */
+  filter:
+    brightness(1.08) contrast(1.15) saturate(1.1)
+    /* Multiple drop-shadows for layered 3D glow */
+    drop-shadow(0 0 40px rgba(57, 100, 200, 0.6)) drop-shadow(0 0 80px rgba(93, 139, 244, 0.4)) drop-shadow(0 0 120px rgba(135, 171, 253, 0.3)) drop-shadow(0 20px 60px rgba(0, 0, 0, 0.5));
+
+  /* Animated glow effect */
+  animation: image-glow-pulse 3s ease-in-out infinite;
+}
+
+/* Pulsing glow animation on the image */
+@keyframes image-glow-pulse {
+
+  0%,
+  100% {
+    filter:
+      brightness(1.08) contrast(1.15) saturate(1.1) drop-shadow(0 0 40px rgba(57, 100, 200, 0.6)) drop-shadow(0 0 80px rgba(93, 139, 244, 0.4)) drop-shadow(0 0 120px rgba(135, 171, 253, 0.3)) drop-shadow(0 20px 60px rgba(0, 0, 0, 0.5));
+  }
+
+  50% {
+    filter:
+      brightness(1.1) contrast(1.18) saturate(1.15) drop-shadow(0 0 50px rgba(57, 100, 200, 0.8)) drop-shadow(0 0 100px rgba(93, 139, 244, 0.6)) drop-shadow(0 0 150px rgba(135, 171, 253, 0.4)) drop-shadow(0 25px 70px rgba(0, 0, 0, 0.6));
+  }
+}
+
+/* Light Overlay for additional depth */
+.hero-image-light-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background:
+    linear-gradient(135deg, rgba(135, 171, 253, 0.12) 0%, transparent 40%),
+    linear-gradient(-45deg, transparent 60%, rgba(57, 100, 200, 0.08) 100%); */
+  pointer-events: none;
+  z-index: 2;
+  mix-blend-mode: overlay;
+  border-radius: 20px;
+  animation: light-shimmer 4s ease-in-out infinite;
+}
+
+@keyframes light-shimmer {
+
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* Gradient Fade Overlay - anchors image to background */
+.hero-image-fade-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60%;
+  background: linear-gradient(to top, rgb(0 10 26) 0%, rgb(0 10 26 / 18%) 20%, rgba(57, 100, 200, 0.3) 40%, transparent 100%);
+  pointer-events: none;
+  z-index: 3;
+  border-radius: 0 0 20px 20px;
+}
+
+/* Background Collage Effect */
+.hero-bg-collage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  height: 90%;
+  background:
+    linear-gradient(135deg, rgba(57, 100, 200, 0.08) 0%, transparent 50%),
+    url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="none" stroke="rgba(57,100,200,0.1)" stroke-width="1"/></svg>');
+  background-size: cover, 50px 50px;
+  border-radius: 20px;
+  z-index: 0;
+  opacity: 0.25;
+  filter: blur(1px);
+}
+
+
+/* Updated Arrow */
 .hero-arrow {
   position: absolute;
   bottom: 30px;
   left: 50%;
   transform: translateX(-50%);
   font-size: 3rem;
-  color: var(--primary-color);
+  color: #5d8bf4;
   animation: bounce 2s infinite;
   cursor: pointer;
   z-index: 10;
@@ -290,46 +611,52 @@ h2 {
   }
 }
 
-.hero-grid {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  max-width: 1100px;
-  margin: 0 auto;
-  z-index: 2;
-  position: relative;
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: 60px;
+    text-align: center;
+  }
+
+  .hero-text {
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: 2.8rem;
+  }
+
+  .hero-cta {
+    align-items: center;
+  }
+
+  .hero-image-container {
+    height: 500px;
+  }
 }
 
-.hero h1 {
-  color: #e2eaff;
-  font-size: 4rem;
-  margin-bottom: 25px;
-  line-height: 1.1;
-  font-weight: 800;
-}
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.2rem;
+  }
 
-/* White-to-Black Gradient for H1 */
-.text-gradient-silver {
-  background: linear-gradient(180deg, #ffffff 20%, #888888 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
-}
+  .hero-subtitle {
+    font-size: 1rem;
+  }
 
-.hero p {
-  font-size: 1.3rem;
-  margin-bottom: 50px;
-  color: var(--text-muted);
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-}
+  .btn-hero-primary {
+    padding: 16px 32px;
+    font-size: 0.9rem;
+  }
 
-/* Hidden image wrapper since we removed the image */
-.hero-img-wrapper {
-  display: none;
+  .hero-image-container {
+    height: 400px;
+  }
+
+  .hero-image {
+    max-width: 350px;
+  }
 }
 
 /* Pra Quem É (Redesigned) */

@@ -39,23 +39,46 @@
     <main>
       <!-- Hero Section -->
       <section id="home" class="hero">
-        <div class="hero-bg-glow glow-blob" style="top:20%; left:20%;"></div>
-        <div class="glow-spotlight"></div>
+        <!-- Background Effects -->
+        <div class="hero-gradient-bg"></div>
+        <div class="hero-glow-left"></div>
+        <div class="hero-glow-right"></div>
 
-        <div class="container hero-grid">
-          <div class="hero-text">
-            <h1 class="fade-in-up">Conquiste a sua <span class="highlight-red">melhor versão</span> e transforme seu
-              corpo</h1>
-            <p class="fade-in-up delay-1">Garanta sua ficha de treinos feita de forma totalmente individualizada,
-              garantindo os melhores resultados para o seu corpo e objetivo.</p>
-            <div class="hero-cta fade-in-up delay-2">
-              <a href="#contact" class="btn btn-primary">Saber Mais</a>
+        <div class="container">
+          <div class="hero-content">
+            <!-- Left: Text Content -->
+            <div class="hero-text">
+              <h1 class="hero-title">
+                Transforme seu corpo com treinos <span class="text-gradient-blue">eficazes</span> e alcance a sua <span
+                  class="text-gradient-blue">melhor versão</span>
+              </h1>
+              <p class="hero-subtitle">
+                Sem treinos intermináveis, sem métodos complicados — apenas um treino adaptado para você, seu ritmo e
+                sua rotina.
+              </p>
+              <div class="hero-cta">
+                <a href="#contact" class="btn-hero-primary">FAÇA PARTE DO TIME →</a>
+                <p class="hero-price">Planos a partir de <strong>R$ XXX,XX</strong>/mês</p>
+              </div>
             </div>
-          </div>
-          <div class="hero-img-wrapper fade-in-right">
-            <!-- Placeholder for Main Image -->
-            <div class="hero-img"
-              style="background: url('public/images/teste.png') no-repeat center/cover; border:1px solid rgba(255,255,255,0.1);">
+
+
+            <!-- Right: Image -->
+            <div class="hero-image-container">
+              <!-- Multiple glow layers for 3D effect -->
+              <div class="hero-image-glow hero-glow-layer-1"></div>
+              <div class="hero-image-glow hero-glow-layer-2"></div>
+              <div class="hero-image-glow hero-glow-layer-3"></div>
+
+              <div class="hero-image-wrapper">
+                <img src="public/images/foto-igor.png" alt="Igor Alves" class="hero-image">
+                <!-- Light overlay for depth -->
+                <div class="hero-image-light-overlay"></div>
+                <!-- Gradient fade overlay - bottom to top -->
+                <div class="hero-image-fade-overlay"></div>
+              </div>
+              <!-- Background collage effect -->
+              <div class="hero-bg-collage"></div>
             </div>
           </div>
         </div>
