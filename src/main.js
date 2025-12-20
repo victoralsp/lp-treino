@@ -3,15 +3,30 @@ import './style.css'
 // Mobile Menu
 const mobileMenu = document.getElementById('mobile-menu');
 const navList = document.querySelector('.nav-list');
+const menuOverlay = document.getElementById('menu-overlay');
 
 mobileMenu.addEventListener('click', () => {
   navList.classList.toggle('active');
+  mobileMenu.classList.toggle('active');
+  menuOverlay.classList.toggle('active');
+  document.body.classList.toggle('menu-open');
+});
+
+// Close menu when clicking overlay
+menuOverlay.addEventListener('click', () => {
+  navList.classList.remove('active');
+  mobileMenu.classList.remove('active');
+  menuOverlay.classList.remove('active');
+  document.body.classList.remove('menu-open');
 });
 
 // Close menu when clicking a link
 document.querySelectorAll('.nav-list a').forEach(link => {
   link.addEventListener('click', () => {
     navList.classList.remove('active');
+    mobileMenu.classList.remove('active');
+    menuOverlay.classList.remove('active');
+    document.body.classList.remove('menu-open');
   });
 });
 
@@ -189,3 +204,61 @@ if (btnPrev3d && btnNext3d && evoStackCards.length > 0) {
     update3dSlider();
   });
 }
+
+/* Connect Form Logic (Personal Landing) */
+const connectForm = document.getElementById('connectForm');
+const connectInput = document.getElementById('connectInput');
+const connectBtn = document.getElementById('connectBtn');
+const toast = document.getElementById('toast');
+const connectError = document.getElementById('connectError');
+
+if (connectForm && connectInput && connectBtn) {
+
+  const validateMessage = (msg) => {
+    if (!msg.trim()) return "A mensagem não pode estar vazia.";
+    if (msg.trim().length < 3) return "A mensagem deve ter pelo menos 3 caracteres.";
+    if (msg.length > 200) return "A mensagem não pode exceder 200 caracteres.";
+    return "";
+  };
+
+  connectInput.addEventListener('input', (e) => {
+    const val = e.target.value;
+
+    // Simple validation for button state
+    if (val.trim().length >= 3) {
+      connectBtn.disabled = false;
+      connectBtn.style.opacity = "1";
+      connectBtn.style.cursor = "pointer";
+    } else {
+      connectBtn.disabled = true;
+      connectBtn.style.opacity = "0.5";
+      connectBtn.style.cursor = "not-allowed";
+    }
+
+    if (connectError) connectError.textContent = "";
+  });
+
+  connectForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const val = connectInput.value;
+    const error = validateMessage(val);
+
+    if (error) {
+      if (connectError) connectError.textContent = error;
+      return;
+    }
+
+    // Success
+    if (toast) {
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3000);
+    }
+
+    connectInput.value = "";
+    connectBtn.disabled = true;
+    connectBtn.style.opacity = "0.5";
+  });
+}
+

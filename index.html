@@ -15,13 +15,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/pricing.css">
 </head>
 
 <body>
   <div id="app">
     <header class="header">
       <nav class="navbar container">
-        <a href="#" class="logo">IGOR <span>ALVES</span></a>
+        <a href="#" class="logo">Mentoria <span>Igor Alves</span></a>
         <div class="menu-toggle" id="mobile-menu">
           <span class="bar"></span>
           <span class="bar"></span>
@@ -36,6 +37,9 @@
       </nav>
     </header>
 
+    <!-- Menu Overlay for Mobile -->
+    <div class="menu-overlay" id="menu-overlay"></div>
+
     <main>
       <!-- Hero Section -->
       <section id="home" class="hero">
@@ -44,7 +48,7 @@
         <div class="hero-glow-left"></div>
         <div class="hero-glow-right"></div>
 
-        <div class="container">
+        <div class="container container-hero">
           <div class="hero-content">
             <!-- Left: Text Content -->
             <div class="hero-text">
@@ -57,8 +61,15 @@
                 sua rotina.
               </p>
               <div class="hero-cta">
-                <a href="#contact" class="btn-hero-primary">FAÇA PARTE DO TIME →</a>
-                <p class="hero-price">Planos a partir de <strong>R$ XXX,XX</strong>/mês</p>
+                <a href="#contact" class="btn-hero-primary">
+                  Saiba mais
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16"
+                    style="margin-left: 15px;">
+                    <path
+                      d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z" />
+                  </svg>
+                </a>
+                <p class="hero-price">Opções a partir de <strong>R$ 78,00</strong>/mês</p>
               </div>
             </div>
 
@@ -71,14 +82,12 @@
               <div class="hero-image-glow hero-glow-layer-3"></div>
 
               <div class="hero-image-wrapper">
-                <img src="public/images/foto-igor.png" alt="Igor Alves" class="hero-image">
+                <img src="images/foto-igor.png" alt="Igor Alves" class="hero-image">
                 <!-- Light overlay for depth -->
                 <div class="hero-image-light-overlay"></div>
                 <!-- Gradient fade overlay - bottom to top -->
                 <div class="hero-image-fade-overlay"></div>
               </div>
-              <!-- Background collage effect -->
-              <div class="hero-bg-collage"></div>
             </div>
           </div>
         </div>
@@ -202,170 +211,219 @@
 
       <!-- Testimonials Marquee Section -->
       <section id="testimonials" class="testimonials-marquee-section section-padding">
-        <div class="container">
+        <div class="container container-testemunhas">
           <div class="testimonials-header">
-            <h2 class="testimonials-main-title">O que falam da consultoria?</h2>
+            <h2 class="testimonials-main-title">O que falam da mentoria?</h2>
             <p class="testimonials-subtitle">Veja o que nossos alunos têm a dizer sobre os resultados alcançados</p>
           </div>
 
           <div class="marquee-container">
             <div class="marquee-track">
+
               <!-- Testimonial Card 1 -->
               <div class="testimonial-card-marquee">
                 <div class="testimonial-author-info">
-                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
-                    alt="João Silva" class="testimonial-avatar">
+                  <img src="public/images/testimonials-peoples/a.jpeg" alt="Foto do aluno(a)"
+                    class="testimonial-avatar">
                   <div class="testimonial-author-text">
-                    <h3 class="testimonial-author-name">João Silva</h3>
-                    <p class="testimonial-author-handle">@joaosilva</p>
+                    <h3 class="testimonial-author-name">Alan Gonçalves</h3>
                   </div>
                 </div>
                 <p class="testimonial-text">
-                  "A consultoria mudou completamente minha abordagem ao treino. Resultados visíveis em apenas 8
-                  semanas!"
+                  "Consegui ganhar massa nesse período de superávit e até reduzi gordura da última consulta"
                 </p>
               </div>
 
-              <!-- Testimonial Card 2 -->
-              <div class="testimonial-card-marquee">
-                <div class="testimonial-author-info">
-                  <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=face"
-                    alt="Maria Santos" class="testimonial-avatar">
-                  <div class="testimonial-author-text">
-                    <h3 class="testimonial-author-name">Maria Santos</h3>
-                    <p class="testimonial-author-handle">@mariasantos</p>
-                  </div>
-                </div>
-                <p class="testimonial-text">
-                  "Finalmente encontrei um método que realmente funciona. O acompanhamento personalizado faz toda a
-                  diferença."
-                </p>
-              </div>
-
-              <!-- Testimonial Card 3 -->
-              <div class="testimonial-card-marquee">
-                <div class="testimonial-author-info">
-                  <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop&crop=face"
-                    alt="Ana Costa" class="testimonial-avatar">
-                  <div class="testimonial-author-text">
-                    <h3 class="testimonial-author-name">Ana Costa</h3>
-                    <p class="testimonial-author-handle">@anacosta</p>
-                  </div>
-                </div>
-                <p class="testimonial-text">
-                  "Superou todas as minhas expectativas! O suporte é incrível e os resultados são reais."
-                </p>
-              </div>
-
-              <!-- Testimonial Card 4 -->
-              <div class="testimonial-card-marquee">
-                <div class="testimonial-author-info">
-                  <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face"
-                    alt="Pedro Oliveira" class="testimonial-avatar">
-                  <div class="testimonial-author-text">
-                    <h3 class="testimonial-author-name">Pedro Oliveira</h3>
-                    <p class="testimonial-author-handle">@pedrooliveira</p>
-                  </div>
-                </div>
-                <p class="testimonial-text">
-                  "A melhor decisão que tomei para minha saúde. Método eficiente e resultados comprovados!"
-                </p>
-              </div>
-
-              <!-- Testimonial Card 5 -->
-              <div class="testimonial-card-marquee">
-                <div class="testimonial-author-info">
-                  <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face"
-                    alt="Carla Mendes" class="testimonial-avatar">
-                  <div class="testimonial-author-text">
-                    <h3 class="testimonial-author-name">Carla Mendes</h3>
-                    <p class="testimonial-author-handle">@carlamendes</p>
-                  </div>
-                </div>
-                <p class="testimonial-text">
-                  "Transformação completa! Não só física, mas mental também. Recomendo muito!"
-                </p>
-              </div>
-
-              <!-- Duplicate cards for seamless loop -->
-              <div class="testimonial-card-marquee">
-                <div class="testimonial-author-info">
-                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
-                    alt="João Silva" class="testimonial-avatar">
-                  <div class="testimonial-author-text">
-                    <h3 class="testimonial-author-name">João Silva</h3>
-                    <p class="testimonial-author-handle">@joaosilva</p>
-                  </div>
-                </div>
-                <p class="testimonial-text">
-                  "A consultoria mudou completamente minha abordagem ao treino. Resultados visíveis em apenas 8
-                  semanas!"
-                </p>
-              </div>
 
               <div class="testimonial-card-marquee">
                 <div class="testimonial-author-info">
-                  <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=face"
-                    alt="Maria Santos" class="testimonial-avatar">
+                  <img src="public/images/testimonials-peoples/b.jpeg" alt="Foto do aluno(a)"
+                    class="testimonial-avatar">
                   <div class="testimonial-author-text">
-                    <h3 class="testimonial-author-name">Maria Santos</h3>
-                    <p class="testimonial-author-handle">@mariasantos</p>
+                    <h3 class="testimonial-author-name">Maria Nascimento</h3>
                   </div>
                 </div>
                 <p class="testimonial-text">
-                  "Finalmente encontrei um método que realmente funciona. O acompanhamento personalizado faz toda a
-                  diferença."
+                  "Eu gostei do treino , achei interessante essas série válidas. Arrasou 👏🏻👏🏻"
                 </p>
               </div>
 
-              <div class="testimonial-card-marquee">
-                <div class="testimonial-author-info">
-                  <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop&crop=face"
-                    alt="Ana Costa" class="testimonial-avatar">
-                  <div class="testimonial-author-text">
-                    <h3 class="testimonial-author-name">Ana Costa</h3>
-                    <p class="testimonial-author-handle">@anacosta</p>
-                  </div>
-                </div>
-                <p class="testimonial-text">
-                  "Superou todas as minhas expectativas! O suporte é incrível e os resultados são reais."
-                </p>
-              </div>
 
               <div class="testimonial-card-marquee">
                 <div class="testimonial-author-info">
-                  <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face"
-                    alt="Pedro Oliveira" class="testimonial-avatar">
+                  <img src="public/images/testimonials-peoples/g.png" alt="Foto do aluno(a)" class="testimonial-avatar">
                   <div class="testimonial-author-text">
-                    <h3 class="testimonial-author-name">Pedro Oliveira</h3>
-                    <p class="testimonial-author-handle">@pedrooliveira</p>
+                    <h3 class="testimonial-author-name">Cibele Pinheiro</h3>
                   </div>
                 </div>
                 <p class="testimonial-text">
-                  "A melhor decisão que tomei para minha saúde. Método eficiente e resultados comprovados!"
+                  "Meuu, que treino pesado, adorei👏🏻. Ficou ótimo, muito obrigado 👏🏻"
                 </p>
               </div>
 
+
               <div class="testimonial-card-marquee">
                 <div class="testimonial-author-info">
-                  <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face"
-                    alt="Carla Mendes" class="testimonial-avatar">
+                  <img src="public/images/testimonials-peoples/c.jpeg" alt="Foto do aluno(a)"
+                    class="testimonial-avatar">
                   <div class="testimonial-author-text">
-                    <h3 class="testimonial-author-name">Carla Mendes</h3>
-                    <p class="testimonial-author-handle">@carlamendes</p>
+                    <h3 class="testimonial-author-name">Mateus Braga</h3>
                   </div>
                 </div>
                 <p class="testimonial-text">
-                  "Transformação completa! Não só física, mas mental também. Recomendo muito!"
+                  "Valeuzão pelo acompanhamento e pelo trabalho Igor, o seu treino está me agregando bastante!"
                 </p>
               </div>
+
+
+              <div class="testimonial-card-marquee">
+                <div class="testimonial-author-info">
+                  <img src="public/images/testimonials-peoples/d.jpeg" alt="Foto do aluno(a)"
+                    class="testimonial-avatar">
+                  <div class="testimonial-author-text">
+                    <h3 class="testimonial-author-name">Igor Natan</h3>
+                  </div>
+                </div>
+                <p class="testimonial-text">
+                  "Top o acompanhamento, trabalho excelente, estou tendo uma evolução braba! 😎👊🏻"
+                </p>
+              </div>
+
+
+              <div class="testimonial-card-marquee">
+                <div class="testimonial-author-info">
+                  <img src="public/images/testimonials-peoples/e.jpeg" alt="Foto do aluno(a)"
+                    class="testimonial-avatar">
+                  <div class="testimonial-author-text">
+                    <h3 class="testimonial-author-name">Mayara Beretta</h3>
+                  </div>
+                </div>
+                <p class="testimonial-text">
+                  "Eu não estava treinando e ganhei muito peso, com a dieta e o treinamento estou conseguindo secar bem!
+                  👏🏻👏🏻"
+                </p>
+              </div>
+
+
+              <div class="testimonial-card-marquee">
+                <div class="testimonial-author-info">
+                  <img src="public/images/testimonials-peoples/f.jpeg" alt="Foto do aluno(a)"
+                    class="testimonial-avatar">
+                  <div class="testimonial-author-text">
+                    <h3 class="testimonial-author-name">Cássia de Oliveira</h3>
+                  </div>
+                </div>
+                <p class="testimonial-text">
+                  "Amei o treino, bem dinâmico e dentro do tempo que gosto de fazer!! Comecei com pesos leves para
+                  retornar e finalizei com a bike!!"
+                </p>
+              </div>
+
+              <!-- Duplicate Testimonials -->
+              <div class="testimonial-card-marquee">
+                <div class="testimonial-author-info">
+                  <img src="public/images/testimonials-peoples/a.jpeg" alt="Foto do aluno(a)"
+                    class="testimonial-avatar">
+                  <div class="testimonial-author-text">
+                    <h3 class="testimonial-author-name">Alan Gonçalves</h3>
+                  </div>
+                </div>
+                <p class="testimonial-text">
+                  "Consegui ganhar massa nesse período de superávit e até reduzi gordura da última consulta"
+                </p>
+              </div>
+
+
+              <div class="testimonial-card-marquee">
+                <div class="testimonial-author-info">
+                  <img src="public/images/testimonials-peoples/b.jpeg" alt="Foto do aluno(a)"
+                    class="testimonial-avatar">
+                  <div class="testimonial-author-text">
+                    <h3 class="testimonial-author-name">Maria Nascimento</h3>
+                  </div>
+                </div>
+                <p class="testimonial-text">
+                  "Eu gostei do treino , achei interessante essas série válidas. Arrasou 👏🏻👏🏻"
+                </p>
+              </div>
+
+
+              <div class="testimonial-card-marquee">
+                <div class="testimonial-author-info">
+                  <img src="public/images/testimonials-peoples/g.png" alt="Foto do aluno(a)" class="testimonial-avatar">
+                  <div class="testimonial-author-text">
+                    <h3 class="testimonial-author-name">Cibele Pinheiro</h3>
+                  </div>
+                </div>
+                <p class="testimonial-text">
+                  "Meuu, que treino pesado, adorei👏🏻. Ficou ótimo, muito obrigado 👏🏻"
+                </p>
+              </div>
+
+
+              <div class="testimonial-card-marquee">
+                <div class="testimonial-author-info">
+                  <img src="public/images/testimonials-peoples/c.jpeg" alt="Foto do aluno(a)"
+                    class="testimonial-avatar">
+                  <div class="testimonial-author-text">
+                    <h3 class="testimonial-author-name">Mateus Braga</h3>
+                  </div>
+                </div>
+                <p class="testimonial-text">
+                  "Valeuzão pelo acompanhamento e pelo trabalho Igor, o seu treino está me agregando bastante!"
+                </p>
+              </div>
+
+
+              <div class="testimonial-card-marquee">
+                <div class="testimonial-author-info">
+                  <img src="public/images/testimonials-peoples/d.jpeg" alt="Foto do aluno(a)"
+                    class="testimonial-avatar">
+                  <div class="testimonial-author-text">
+                    <h3 class="testimonial-author-name">Igor Natan</h3>
+                  </div>
+                </div>
+                <p class="testimonial-text">
+                  "Top o acompanhamento, trabalho excelente, estou tendo uma evolução braba! 😎👊🏻"
+                </p>
+              </div>
+
+
+              <div class="testimonial-card-marquee">
+                <div class="testimonial-author-info">
+                  <img src="public/images/testimonials-peoples/e.jpeg" alt="Foto do aluno(a)"
+                    class="testimonial-avatar">
+                  <div class="testimonial-author-text">
+                    <h3 class="testimonial-author-name">Mayara Beretta</h3>
+                  </div>
+                </div>
+                <p class="testimonial-text">
+                  "Eu não estava treinando e ganhei muito peso, com a dieta e o treinamento estou conseguindo secar bem!
+                  👏🏻👏🏻"
+                </p>
+              </div>
+
+
+              <div class="testimonial-card-marquee">
+                <div class="testimonial-author-info">
+                  <img src="public/images/testimonials-peoples/f.jpeg" alt="Foto do aluno(a)"
+                    class="testimonial-avatar">
+                  <div class="testimonial-author-text">
+                    <h3 class="testimonial-author-name">Cássia de Oliveira</h3>
+                  </div>
+                </div>
+                <p class="testimonial-text">
+                  "Amei o treino, bem dinâmico e dentro do tempo que gosto de fazer!! Comecei com pesos leves para
+                  retornar e finalizei com a bike!!"
+                </p>
+              </div>
+
             </div>
 
             <!-- Gradient overlays -->
             <div class="marquee-gradient-left"></div>
             <div class="marquee-gradient-right"></div>
           </div>
-        </div>
       </section>
 
       <!-- Benefits Timeline Section -->
@@ -393,10 +451,9 @@
                   <h3>Corpo Estético</h3>
                 </div>
                 <div class="timeline-card-col">
-                  <div class="timeline-card">
-                    <div class="timeline-img"
-                      style="background-image: url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=800&auto=format&fit=crop');">
-                    </div>
+                  <div class="timeline-card"
+                    style="background-image: url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=800&auto=format&fit=crop');">
+                    <div class="timeline-card-overlay"></div>
                     <div class="timeline-text">
                       <h4>Hipertrofia e Definição</h4>
                       <p>Conquiste um físico harmônico e definido através de treinos periodizados especificamente para
@@ -417,10 +474,9 @@
                   <h3>Mais Saúde</h3>
                 </div>
                 <div class="timeline-card-col">
-                  <div class="timeline-card">
-                    <div class="timeline-img"
-                      style="background-image: url('https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?q=80&w=800&auto=format&fit=crop');">
-                    </div>
+                  <div class="timeline-card"
+                    style="background-image: url('https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?q=80&w=800&auto=format&fit=crop');">
+                    <div class="timeline-card-overlay"></div>
                     <div class="timeline-text">
                       <h4>Energia e Disposição</h4>
                       <p>Melhore sua qualidade de vida, sono e disposição diária com uma rotina de exercícios
@@ -441,10 +497,9 @@
                   <h3>Rotina Eficiente</h3>
                 </div>
                 <div class="timeline-card-col">
-                  <div class="timeline-card">
-                    <div class="timeline-img"
-                      style="background-image: url('https://images.unsplash.com/photo-1550345332-09e3ac93dd09?q=80&w=800&auto=format&fit=crop');">
-                    </div>
+                  <div class="timeline-card"
+                    style="background-image: url('https://img.freepik.com/fotos-premium/mulher-jovem-a-ver-um-filme-no-portatil-na-cama_1048944-4447514.jpg?semt=ais_hybrid&w=740&q=80');">
+                    <div class="timeline-card-overlay"></div>
                     <div class="timeline-text">
                       <h4>Treinos Otimizados</h4>
                       <p>Não perca tempo na academia. Treinos focados e intensos que se encaixam na sua agenda,
@@ -459,9 +514,161 @@
         </div>
       </section>
 
+
+
+
+      <!-- Pricing / Plans Section (Refactored Glassmorphism) -->
+      <section id="planos" class="pricing-section">
+        <!-- Top Spotlight -->
+        <div class="pricing-bg-spotlight"></div>
+
+        <div class="pricing-container">
+          <!-- Header -->
+          <div class="pricing-header fade-in-up">
+            <h2 class="pricing-title">Planos disponíveis</h2>
+            <p class="pricing-subtitle">Escolha o plano ideal para sua evolução</p>
+          </div>
+
+          <!-- Grid -->
+          <div class="pricing-grid fade-in-up">
+
+            <!-- Card 1: 30 Dias -->
+            <div class="pricing-card">
+              <div class="pricing-card-header">
+                <span class="plan-name">30 Dias</span>
+                <div class="plan-price-block">
+                  <span class="price-currency">R$</span>
+                  <span class="price-value">94,90</span>
+                  <span class="price-period"></span>
+                </div>
+                <p class="plan-desc">1 Planilha de treino</p>
+                <a href="#contact" class="plan-btn">Começar Agora</a>
+              </div>
+              <div class="pricing-card-features">
+                <p class="features-header">Incluso:</p>
+                <ul class="features-list">
+                  <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon-check"
+                      style="width: 20px; height: 20px; min-width: 20px;" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clip-rule="evenodd"></path>
+                    </svg>
+                    R$ 94,90 por planilha
+                  </li>
+                  <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon-check"
+                      style="width: 20px; height: 20px; min-width: 20px;" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clip-rule="evenodd"></path>
+                    </svg>
+                    Acesso ao app
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Card 2: 90 Dias (Popular) -->
+            <div class="pricing-card popular">
+              <div class="popular-badge">Mais Popular</div>
+              <div class="pricing-card-header">
+                <span class="plan-name">90 Dias</span>
+                <div class="plan-price-block">
+                  <span class="price-currency">R$</span>
+                  <span class="price-value">269,90</span>
+                  <span class="price-period"></span>
+                </div>
+                <p class="plan-desc">3 Planilhas de treino</p>
+                <a href="#contact" class="plan-btn">Quero Evoluir</a>
+              </div>
+              <div class="pricing-card-features">
+                <p class="features-header">Incluso:</p>
+                <ul class="features-list">
+                  <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon-check"
+                      style="width: 20px; height: 20px; min-width: 20px;" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clip-rule="evenodd"></path>
+                    </svg>
+                    R$ 89,00 por planilha
+                  </li>
+                  <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon-check"
+                      style="width: 20px; height: 20px; min-width: 20px;" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clip-rule="evenodd"></path>
+                    </svg>
+                    Economia de R$ 15,00
+                  </li>
+                  <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon-check"
+                      style="width: 20px; height: 20px; min-width: 20px;" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clip-rule="evenodd"></path>
+                    </svg>
+                    Acesso ao app
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Card 3: 180 Dias -->
+            <div class="pricing-card">
+              <div class="pricing-card-header">
+                <span class="plan-name">180 Dias</span>
+                <div class="plan-price-block">
+                  <span class="price-currency">R$</span>
+                  <span class="price-value">469,90</span>
+                  <span class="price-period"></span>
+                </div>
+                <p class="plan-desc">6 Planilhas de treino</p>
+                <a href="#contact" class="plan-btn">Garantir Vaga</a>
+              </div>
+              <div class="pricing-card-features">
+                <p class="features-header">Incluso:</p>
+                <ul class="features-list">
+                  <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon-check"
+                      style="width: 20px; height: 20px; min-width: 20px;" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clip-rule="evenodd"></path>
+                    </svg>
+                    R$ 78,00 por planilha
+                  </li>
+                  <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon-check"
+                      style="width: 20px; height: 20px; min-width: 20px;" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clip-rule="evenodd"></path>
+                    </svg>
+                    Economia de R$ 99,50
+                  </li>
+                  <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon-check"
+                      style="width: 20px; height: 20px; min-width: 20px;" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clip-rule="evenodd"></path>
+                    </svg>
+                    Acesso ao app
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
       <!-- Passo a Passo -->
-      <section class="steps-section section-padding">
-        <div class="container">
+      <section class="steps-section section-padding section-padding-steps">
+        <div class="container container-passos">
           <div class="steps-header text-center fade-in-up">
             <h2>Passo a passo</h2>
             <p>Para contratar</p>
@@ -490,7 +697,7 @@
                 <div class="step-number">2</div>
               </div>
               <h3>Faça o pagamento</h3>
-              <p>Pague com cartão de crédito a vista ou parcele em até 6 vezes.</p>
+              <p>Pague no pix ou cartão parcelado em até 6x sem juros.</p>
               <div class="step-dots">
                 <div class="dot"></div>
                 <div class="dot"></div>
@@ -547,24 +754,65 @@
       </section>
 
 
-      <!-- Sobre Mim -->
-      <section id="sobre" class="about section-padding">
-        <div class="container about-grid">
-          <div class="about-img-container fade-in-right">
-            <!-- Placeholder for Igor's photo -->
-            <div class="hero-img"
-              style="background: url('https://placehold.co/400x500/111/444?text=FOTO+DO+IGOR') no-repeat center/cover; min-height:400px;">
+      <!-- Sobre Mim (Personal Landing Style) -->
+      <section id="sobre" class="personal-landing-section">
+        <div class="personal-bg-blob"></div>
+
+        <div class="container container-personal">
+          <!-- Hero/Avatar Part -->
+          <div class="pl-hero-section">
+            <div class="pl-avatar-container">
+              <div class="pl-avatar-glow"></div>
+              <img src="images/foto-igor.webp" alt="Igor Alves" class="pl-avatar-image"
+                onerror="this.src='https://placehold.co/400x500/111/444?text=IGOR'">
+              <div class="hero-image-fade-overlay-about-me"></div>
             </div>
-          </div>
-          <div class="about-text fade-in-left">
-            <h2>Sobre mim</h2>
-            <p>Olá, eu sou o <strong>Igor Alves</strong>, tenho 23 anos e sou estudante de Educação Física.</p>
-            <br>
-            <p>Pratico musculação há vários anos e, com minha experiência, comecei a oferecer mentoria de treinos
-              personalizados.</p>
-            <br>
-            <p>Meu objetivo é ajudar você a alcançar suas metas de forma segura e eficiente, seja para ganhar massa
-              muscular, melhorar o condicionamento ou ter mais disposição no dia a dia.</p>
+
+            <div class="pl-hero-text-wrapper">
+              <h2 class="pl-title">
+                Olá, eu sou o <span id="nome-style">Igor Alves</span>,
+              </h2>
+              <p class="pl-subtitle">
+                Tenho 24 anos e sou estudante de Educação Física, apaixonado por movimento, performance e transformação
+                de vidas através do treino.
+              </p>
+              <p class="pl-subtitle">
+                Acredito que cada corpo tem sua própria história e que o treinamento deve ser individualizado,
+                inteligente e sustentável. Meu foco é entender a rotina, os objetivos e as limitações de cada pessoa
+                para criar planos que realmente funcionem no dia a dia.
+              </p>
+              <p class="pl-subtitle">
+                Estou em constante evolução, buscando conhecimento técnico e científico para entregar treinos
+                eficientes, seguros e atualizados. Seja para ganho de massa, emagrecimento, condicionamento físico ou
+                bem-estar, meu compromisso é ajudar você a alcançar resultados com consistência.
+              </p>
+              <p class="pl-subtitle">
+                Treinar vai além da estética: é saúde, confiança e qualidade de vida — e estarei ao seu lado nesse
+                processo.
+              </p>
+
+              <!-- Contact / CTA Area -->
+              <div class="pl-action-area">
+                <a href="#contact" class="btn-pl-cta">Entrar em contato!</a>
+                <p class="pl-contact-email">contato@igoralves.com</p>
+                <div class="pl-socials-inline">
+                  <a href="#" class="social-icon-circle">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
+                      viewBox="0 0 16 16">
+                      <path
+                        d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z" />
+                    </svg>
+                  </a>
+                  <a href="#" class="social-icon-circle"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                      viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                      <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                    </svg></a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -581,14 +829,14 @@
               <div class="carousel-card">
                 <div class="evolution-card-inner">
                   <!-- Simulate Before/After image with placeholder -->
-                  <img src="https://placehold.co/900x400/0d1b3e/FFF?text=Evolução+1:+Antes+x+Depois" alt="Evolução"
+                  <img src="https://placehold.co/900x400/1e2e21/FFF?text=Evolução+1:+Antes+x+Depois" alt="Evolução"
                     class="evolution-img-full">
                 </div>
               </div>
               <!-- Card 2 -->
               <div class="carousel-card">
                 <div class="evolution-card-inner">
-                  <img src="https://placehold.co/900x400/0d1b3e/FFF?text=Evolução+2:+Costas" alt="Evolução"
+                  <img src="https://placehold.co/900x400/1e2e21/FFF?text=Evolução+2:+Costas" alt="Evolução"
                     class="evolution-img-full">
                 </div>
               </div>
