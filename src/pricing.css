@@ -1,0 +1,289 @@
+/* Pricing Section - Modern Glassmorphism (Green Theme) */
+
+/* Section Container */
+.pricing-section {
+    position: relative;
+    padding: 100px 0;
+    overflow: hidden;
+    background-color: var(--bg-color);
+    /* Ensure it matches the page background */
+}
+
+/* Background Top Spotlight (Green) */
+/* Replaces: bg-indigo-950/20 bg-[radial-gradient(ellipse_20%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))] */
+.pricing-bg-spotlight {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(60, 179, 113, 0.3), rgba(0, 0, 0, 0));
+    pointer-events: none;
+    z-index: 0;
+}
+
+.pricing-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Header */
+.pricing-header {
+    text-align: center;
+    margin-bottom: 64px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pricing-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    /* Gradient Text like reference: "from-purple-600 to-pink-500" -> Green to Light Green/White */
+    background: linear-gradient(to right, #ffffff 20%, #86efa6 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -1px;
+}
+
+.pricing-subtitle {
+    color: var(--text-muted);
+    font-size: 1.125rem;
+    line-height: 1.6;
+}
+
+/* Grid */
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+}
+
+/* Base Card Style */
+/* Reference: relative flex-1 flex col rounded-xl border-2 ... */
+.pricing-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    /* Dark subtle border */
+    background-color: rgba(10, 10, 10, 0.6);
+    /* Glassy dark base */
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+
+    /* Inset Shadow (Green Tint) - recreating dark:[box-shadow:0_-20px_80px_-20px_#8686f01f_inset] */
+    box-shadow: inset 0 -20px 80px -20px rgba(60, 179, 113, 0.1);
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+}
+
+.pricing-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: inset 0 -20px 80px -20px rgba(60, 179, 113, 0.2), 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+}
+
+/* Most Popular Card Override */
+.pricing-card.popular {
+    /* Reference uses standard styling + badge, but we can enhance border */
+    border-color: rgba(60, 179, 113, 0.4);
+}
+
+/* Popular Badge */
+/* Reference: absolute -top-5 ... bg-indigo-950/50 ... animate-background-shine */
+.popular-badge {
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+
+    background-color: #022010;
+    /* Dark green */
+    border: 1px solid rgba(60, 179, 113, 0.5);
+    color: #fff;
+    padding: 6px 16px;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    white-space: nowrap;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+
+    /* Shine Animation Background */
+    background-image: linear-gradient(110deg, transparent 45%, rgba(60, 179, 113, 0.5) 55%, transparent);
+    background-size: 200% 100%;
+    animation: background-shine 3s linear infinite;
+}
+
+/* Card Header Section (Title, Price, Button) */
+/* Reference: p-8 space-y-4 border-b */
+.pricing-card-header {
+    padding: 32px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: relative;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    overflow: hidden;
+    /* For header shine */
+}
+
+/* Header Shine for Enterprise/Popular - "dark:bg-[linear-gradient(110deg...)]" */
+.pricing-card.popular .pricing-card-header {
+    background: linear-gradient(110deg, transparent 40%, rgba(60, 179, 113, 0.1) 50%, transparent 60%);
+    background-size: 200% 100%;
+    animation: background-shine 4s linear infinite;
+}
+
+@keyframes background-shine {
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+.plan-name {
+    color: var(--primary-color);
+    /* Green */
+    font-size: 1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.plan-price-block {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    color: #fff;
+}
+
+.price-currency {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.price-value {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.price-period {
+    font-size: 1rem;
+    color: var(--text-muted);
+    font-weight: 400;
+}
+
+.plan-desc {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-top: 4px;
+}
+
+/* Button */
+/* Reference: bg-gradient-to-br from-indigo-400 to-indigo-700 -> Green Gradient */
+.plan-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    /* rounded-md */
+    font-weight: 600;
+    font-size: 1rem;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    margin-top: 8px;
+
+    /* Green Gradient */
+    background: linear-gradient(135deg, rgba(60, 179, 113, 0.8) 0%, rgba(34, 139, 34, 1) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 2px 10px rgba(60, 179, 113, 0.2);
+}
+
+.plan-btn:hover {
+    transform: scale(1.02);
+    filter: brightness(1.1);
+    box-shadow: 0 5px 15px rgba(60, 179, 113, 0.3);
+}
+
+.plan-btn:active {
+    transform: scale(0.98);
+}
+
+/* Features List */
+.pricing-card-features {
+    padding: 32px;
+}
+
+.features-header {
+    margin-bottom: 16px;
+    color: #fff;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.features-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.features-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+/* Check Icons */
+.icon-check {
+    width: 20px !important;
+    height: 20px !important;
+    min-width: 20px !important;
+    max-width: 20px !important;
+    color: var(--primary-color);
+    flex-shrink: 0;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .pricing-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .pricing-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .pricing-card {
+        margin-top: 30px;
+        /* Space for stacked badges if needed */
+    }
+
+    .pricing-title {
+        font-size: 2.25rem;
+    }
+}
