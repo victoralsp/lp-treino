@@ -21,6 +21,13 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 1vh;
+  /* Global offset for all anchor links, responsive to viewport height */
+}
+
+section {
+  scroll-margin-top: 5vh;
+  /* Additional offset specifically for section tags */
 }
 
 body {
@@ -2169,7 +2176,7 @@ details[open] summary::after {
     padding-right: 20px !important;
   }
 
- 
+
 
   .rotating-word {
     font-size: 1.5rem;
