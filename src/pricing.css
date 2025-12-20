@@ -39,6 +39,15 @@
     margin-right: auto;
 }
 
+@media screen and (max-width: 600px) {
+  .pricing-header {
+    margin-bottom: 32px;
+  }
+  .pricing-section {
+    padding: 70px 0 100px 0;
+  }
+}   
+
 .pricing-title {
     font-size: 3rem;
     font-weight: 700;

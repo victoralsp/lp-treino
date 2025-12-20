@@ -251,6 +251,12 @@ h2 {
   width: 100%;
 }
 
+@media screen and (max-width: 500px) {
+  .logo {
+    font-size: 1.5rem !important;
+  }
+}
+
 .logo {
   font-size: 1.8rem;
   font-weight: 800;
@@ -320,7 +326,7 @@ h2 {
 }
 
 /* Mobile Menu Responsive Styles */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   :root {
     --header-height: 60px;
   }
@@ -385,7 +391,7 @@ h2 {
 }
 
 /* Tablet Responsive */
-@media (max-width: 1024px) and (min-width: 769px) {
+@media (max-width: 1024px) and (min-width: 901px) {
   .nav-list {
     gap: 25px;
   }
@@ -793,6 +799,7 @@ h2 {
     object-fit: contain;
     object-position: top center;
     padding-top: 30px;
+    transform: scaleX(1);
     /* Slight offset from top to avoid header overlap if needed, or 0 if it should be behind */
     /* mask-image: linear-gradient(to bottom, black 80%, transparent 100%); */
     /* -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%); */
