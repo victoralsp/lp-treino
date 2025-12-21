@@ -706,11 +706,13 @@ h2 {
   bottom: 0;
   left: 0;
   width: 100%;
-  border-radius: 50%;
-  height: 100%;
-  background: linear-gradient(to top, rgb(0, 20, 15) 0%, rgba(0, 20, 15, 0.76) 20%, rgba(60, 179, 114, 0.178) 40%, transparent 100%);
+  height: 50%;
+  /* Reduced height to not cover face */
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.4) 50%, transparent 100%);
   pointer-events: none;
-  z-index: 99;
+  z-index: 20;
+  border-radius: 0 0 12px 12px;
+  /* Match image radius */
 }
 
 /* Updated Arrow */
@@ -1216,7 +1218,7 @@ h2 {
   position: relative;
   max-width: 1000px;
   margin: 0 auto;
-  padding: 40px 0 150px 0;
+  padding: 40px 0 50px 0;
 }
 
 /* Line Container */
@@ -1264,7 +1266,7 @@ h2 {
   /* Ensure space for sticky scroll */
   margin-bottom: 0;
   z-index: 2;
-  padding-bottom: 150px;
+  padding-bottom: 50px;
 }
 
 .timeline-item:last-child {
@@ -2206,11 +2208,17 @@ details[open] summary::after {
 .personal-landing-section {
   position: relative;
   width: 100%;
-  padding: 120px 20px;
+  padding: 0px 20px 40px 20px;
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media (min-width: 900px) {
+  .personal-landing-section {
+    padding: 120px 0;
+  }
 }
 
 /* Background Blob & Ambient Lighting - Brighter & Larger */
@@ -2272,7 +2280,17 @@ details[open] summary::after {
 
 .pl-avatar-container {
   position: relative;
-  margin-bottom: 10px;
+  margin: 0 auto 30px;
+  width: 100%;
+  max-width: 450px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Remove ring */
+.pl-avatar-container::before {
+  content: none;
 }
 
 .pl-avatar-glow {
@@ -2280,51 +2298,32 @@ details[open] summary::after {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 110%;
-  height: 110%;
-  background: radial-gradient(circle, rgba(60, 179, 113, 0.6) 0%, transparent 70%);
-  filter: blur(50px);
-  z-index: 1;
-  animation: pulse-avatar-light 4s ease-in-out infinite;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 60%);
+  filter: blur(60px);
+  z-index: 0;
   pointer-events: none;
-}
-
-@keyframes pulse-avatar-light {
-
-  0%,
-  100% {
-    opacity: 0.5;
-    transform: translate(-50%, -50%) scale(1);
-  }
-
-  50% {
-    opacity: 0.8;
-    transform: translate(-50%, -50%) scale(1.05);
-  }
 }
 
 .pl-avatar-image {
   position: relative;
-  width: 400px;
+  width: 100%;
   height: auto;
-  border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow:
-    0 0 20px rgba(60, 179, 113, 0.4),
-    0 0 60px rgba(60, 179, 113, 0.2);
+  border-radius: 12px;
+  border: none;
+  /* box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(0, 0, 0, 0.5); */
   object-fit: cover;
   z-index: 10;
-  max-width: 100%;
-  aspect-ratio: 1/1;
   transition: all 0.5s ease;
+
+  filter: brightness(1.1) contrast(1.15) saturate(1.1);
 }
 
 .pl-avatar-image:hover {
-  transform: scale(1.02);
-  box-shadow:
-    0 0 30px rgba(60, 179, 113, 0.6),
-    0 0 80px rgba(60, 179, 113, 0.4);
-  border-color: rgba(60, 179, 113, 0.8);
+  transform: scale(1.02) translateY(-10px);
 }
 
 .pl-title {
@@ -2513,4 +2512,276 @@ details[open] summary::after {
   height: 20px;
   margin-top: 5px;
   font-weight: 500;
+}
+
+/* --- App MFIT Section --- */
+.app-mfit-section {
+  position: relative;
+  background-color: #000308;
+  overflow: hidden;
+  /* Ensure it has enough space */
+  padding-bottom: 80px;
+}
+
+.mfit-glow-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(60, 179, 113, 0.15) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.mfit-container {
+  position: relative;
+  z-index: 1;
+}
+
+.mfit-title {
+  background: linear-gradient(to right, #ffffff, var(--primary-color));
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.mfit-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  margin-top: 50px;
+  align-items: center;
+}
+
+.mfit-images-grid {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.mfit-image-card {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(60, 179, 113, 0.3);
+  max-width: 320px;
+  max-height: 450px;
+  width: 100%;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.mfit-image-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 30px 60px rgba(60, 179, 113, 0.3);
+  border-color: var(--primary-glow);
+}
+
+.mfit-image-card:hover .mfit-img-overlay {
+  padding-bottom: 30px;
+
+}
+
+.mfit-image-card:hover .mfit-description {
+  opacity: 0;
+  max-height: 0;
+  margin-top: 0;
+}
+
+.mfit-image-card:hover .mfit-tag {
+  background: rgba(60, 179, 113, 0.1);
+  color: #fff;
+}
+
+.mfit-app-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.mfit-image-card:hover .mfit-app-img {
+  transform: scale(1.05);
+}
+
+.mfit-img-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  transition: all 0.4s ease;
+
+
+  height: 100%;
+  background: linear-gradient(to top, rgba(0, 3, 8, 0.98) 20%, rgb(0 3 8 / 25%) 100%);
+  padding-bottom: 30px;
+}
+
+.mfit-tag {
+
+  border: 1px solid var(--primary-color);
+  padding: 8px 20px;
+  border-radius: 30px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  backdrop-filter: blur(10px);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+
+  background: var(--primary-color);
+  color: #000;
+  box-shadow: 0 0 15px rgba(60, 179, 113, 0.6);
+
+  transition: all 0.3s ease;
+}
+
+.mfit-description {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  text-align: center;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  line-height: 1.5;
+
+
+
+
+
+
+  max-height: 150px;
+  opacity: 1;
+  margin-top: 15px;
+}
+
+/* Video Section */
+.mfit-video-section {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.mfit-video-container {
+  width: 100%;
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: #0a0a0a;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+  aspect-ratio: 16/9;
+}
+
+.mfit-video-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.video-placeholder {
+  aspect-ratio: 16/9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  background: linear-gradient(135deg, #050a08, #001a11);
+  cursor: pointer;
+  transition: all 0.4s ease;
+  position: relative;
+}
+
+.video-placeholder::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(60, 179, 113, 0.1), transparent 50%);
+  opacity: 0.5;
+}
+
+.video-placeholder:hover {
+  filter: brightness(1.2);
+}
+
+.video-placeholder:hover .play-icon-pulse {
+  transform: scale(1.15);
+  color: var(--primary-glow);
+  filter: drop-shadow(0 0 20px rgba(60, 179, 113, 0.8));
+}
+
+.play-icon-pulse {
+  color: var(--primary-color);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  filter: drop-shadow(0 0 15px rgba(60, 179, 113, 0.4));
+  z-index: 2;
+}
+
+.video-placeholder p {
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+  font-size: 1.1rem;
+  z-index: 2;
+}
+
+.mfit-cta-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.btn-mfit-glow {
+  padding: 22px 50px;
+  font-size: 1.1rem;
+  box-shadow:
+    0 0 20px rgba(60, 179, 113, 0.3),
+    inset 0 0 10px rgba(60, 179, 113, 0.2);
+  border: 1px solid rgba(60, 179, 113, 0.8);
+}
+
+.btn-mfit-glow:hover {
+  box-shadow:
+    0 0 40px rgba(60, 179, 113, 0.5),
+    inset 0 0 20px rgba(60, 179, 113, 0.3);
+  transform: translateY(-4px);
+  color: #fff;
+}
+
+.mfit-small-text {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  font-weight: 300;
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .mfit-images-grid {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .mfit-image-card {
+    max-width: 100%;
+  }
+
+  .btn-mfit-glow {
+    padding: 18px 20px;
+    font-size: 0.7rem !important;
+    width: 100%;
+    max-width: 320px;
+    display: flex;
+    justify-content: center;
+  }
 }
