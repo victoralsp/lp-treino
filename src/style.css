@@ -11,6 +11,85 @@
   --header-height: 80px;
   --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   --radius: 12px;
+
+  /* Typography System */
+  --font-h1: 3.5rem;
+  --font-h2: 2.5rem;
+  --font-h3: 1.75rem;
+  --font-h4: 1.25rem;
+  --font-p: 1.1rem;
+  --font-small: 0.9rem;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-glow);
+}
+
+/* WhatsApp Floating Button */
+.btn-whatsapp {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background-color: #25d366;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.5);
+  z-index: 1000;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.5s ease;
+  animation: pulse-whatsapp 2s infinite;
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0);
+}
+
+.btn-whatsapp.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+}
+
+.btn-whatsapp:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.7);
+}
+
+.btn-whatsapp svg {
+  width: 35px;
+  height: 35px;
+  fill: #fff;
+}
+
+@keyframes pulse-whatsapp {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+  }
+
+  70% {
+    box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
 }
 
 * {
@@ -104,11 +183,33 @@ h3 {
   color: white;
 }
 
+h1 {
+  font-size: var(--font-h1);
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
 h2 {
-  font-size: 2.5rem;
+  font-size: var(--font-h2);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: -1px;
+}
+
+h3 {
+  font-size: var(--font-h3);
+  font-weight: 600;
+}
+
+h4 {
+  font-size: var(--font-h4);
+  margin-bottom: 10px;
+  color: white;
+}
+
+p {
+  font-size: var(--font-p);
+  color: var(--text-muted);
 }
 
 .text-center {
@@ -241,7 +342,7 @@ h2 {
   z-index: 1000;
   /* background: rgba(0, 3, 8, 0.95); */
   backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, .05);
 }
 
 .navbar {
@@ -329,6 +430,10 @@ h2 {
 @media (max-width: 900px) {
   :root {
     --header-height: 60px;
+    --font-h1: 2.2rem;
+    --font-h2: 1.8rem;
+    --font-h3: 1.4rem;
+    --font-p: 1rem;
   }
 
   .menu-toggle {
@@ -487,7 +592,7 @@ h2 {
 }
 
 .hero-title {
-  font-size: 3.5rem;
+  font-size: var(--font-h1);
   font-weight: 800;
   line-height: 1.15;
   color: #ffffff;
@@ -519,7 +624,7 @@ h2 {
 }
 
 .hero-subtitle {
-  font-size: 1.15rem;
+  font-size: var(--font-p);
   line-height: 1.8;
   color: rgba(255, 255, 255, 0.7);
   margin-bottom: 40px;
@@ -908,7 +1013,7 @@ h2 {
 }
 
 .who-is-title {
-  font-size: 2rem;
+  font-size: var(--font-h2);
   color: var(--text-muted);
   margin-bottom: 20px;
   font-weight: 400;
@@ -967,7 +1072,7 @@ h2 {
 
 .who-is-description {
   color: var(--text-muted);
-  font-size: 1.1rem;
+  font-size: var(--font-p);
   max-width: 600px;
   margin: 0 auto 40px;
   line-height: 1.8;
@@ -1017,13 +1122,13 @@ h2 {
 }
 
 .steps-header h2 {
-  font-size: 2.5rem;
+  font-size: var(--font-h2);
   margin-bottom: 10px;
 }
 
 .steps-header p {
   color: var(--text-muted);
-  font-size: 1.1rem;
+  font-size: var(--font-p);
 }
 
 /* Process Steps Section - Advanced Space Card Style */
@@ -1153,7 +1258,7 @@ h2 {
 }
 
 .step-card h3 {
-  font-size: 1.5rem;
+  font-size: var(--font-h3);
   font-weight: 700;
   margin-bottom: 15px;
   background: linear-gradient(90deg, #fff, #a0b5f0);
@@ -1166,7 +1271,7 @@ h2 {
 
 .step-card p {
   color: rgba(200, 220, 255, 0.7);
-  font-size: 0.95rem;
+  font-size: var(--font-p);
   line-height: 1.6;
   position: relative;
   z-index: 10;
@@ -1321,7 +1426,7 @@ h2 {
 
 /* Sticky Titles on Desktop */
 .timeline-title-col h3 {
-  font-size: 2rem;
+  font-size: var(--font-h3);
   color: var(--text-muted);
   margin-bottom: 20px;
   font-weight: 700;
@@ -1388,7 +1493,7 @@ h2 {
 
 
 .timeline-text h4 {
-  font-size: 2rem;
+  font-size: var(--font-h4);
   /* Larger title as per reference */
   font-weight: 800;
   margin-bottom: 15px;
@@ -1400,7 +1505,7 @@ h2 {
 }
 
 .timeline-text p {
-  font-size: 1.05rem;
+  font-size: var(--font-p);
   color: #e2e8f0;
   line-height: 1.6;
   margin-bottom: 0;
@@ -1607,43 +1712,97 @@ h2 {
 }
 
 /* Why Choose */
+.why-choose-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1200px;
+  height: 1200px;
+  background: radial-gradient(circle, rgba(60, 179, 113, 0.15) 0%, transparent 60%);
+  filter: blur(120px);
+  z-index: 0;
+  pointer-events: none;
+}
+
 .features-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
+  position: relative;
+  z-index: 2;
 }
 
 .feature-item {
-  background: #0f0f0f;
-  padding: 40px 30px;
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: radial-gradient(145deg, rgba(20, 30, 25, 0.6), rgba(5, 5, 5, 0.8));
+  backdrop-filter: blur(10px);
+  padding: 50px 30px;
+  border-radius: 24px;
+  border: 1px solid rgba(60, 179, 113, 0.2);
   text-align: center;
-  transition: var(--transition);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 .feature-item:hover {
   transform: translateY(-10px);
   border-color: var(--primary-color);
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.8),
+    0 0 30px rgba(60, 179, 113, 0.2),
+    inset 0 0 20px rgba(60, 179, 113, 0.1);
+  background: radial-gradient(145deg, rgba(30, 45, 35, 0.7), rgba(5, 5, 5, 0.9));
 }
 
+.feature-item .icon-emoji {
+  transition: transform 0.4s ease;
+  display: inline-block;
+  filter: drop-shadow(0 0 15px rgba(60, 179, 113, 0.2));
+}
+
+.feature-item:hover .icon-emoji {
+  transform: scale(1.15) rotate(5deg);
+  filter: drop-shadow(0 0 25px rgba(60, 179, 113, 0.6));
+}
+
+.feature-item h3 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin: 25px 0 15px;
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+.feature-item:hover h3 {
+  color: var(--primary-color);
+  text-shadow: 0 0 10px rgba(60, 179, 113, 0.5);
+}
+
+.feature-item p {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+/* Light Shine Effect on Hover */
 .feature-item::after {
   content: '';
   position: absolute;
   top: 0;
-  left: 0;
+  left: -100%;
   width: 100%;
-  height: 4px;
-  background: var(--primary-color);
-  transform: scaleX(0);
-  transition: transform 0.4s ease;
-  transform-origin: left;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+  transition: 0.5s;
+  pointer-events: none;
 }
 
 .feature-item:hover::after {
-  transform: scaleX(1);
+  left: 100%;
+  transition: 0.7s ease-in-out;
 }
 
 /* FAQ */
@@ -2597,8 +2756,8 @@ details[open] summary::after {
 
 .mfit-app-img {
   width: 100%;
-  height: auto;
-  display: block;
+  /* height: auto; */
+  /* display: block; */
   transition: transform 0.5s ease;
 }
 
@@ -2783,5 +2942,529 @@ details[open] summary::after {
     max-width: 320px;
     display: flex;
     justify-content: center;
+  }
+}
+
+/* 
+========================================
+   Minha Evolução (Swiper) Styles
+========================================
+*/
+
+.evolution-section {
+  position: relative;
+  overflow: visible;
+  /* Changed to visible generally, but handled vertically */
+  /* Logic: We have overflows like glow. Usually section relative overflow hidden is good. 
+     But let's keep hidden and ensure glow is within padding or clip. */
+  overflow: hidden;
+}
+
+/* Background Glows */
+.evo-glow-1 {
+  position: absolute;
+  top: -10%;
+  left: -20%;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(60, 179, 113, 0.15) 0%, transparent 70%);
+  filter: blur(100px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.evo-glow-2 {
+  position: absolute;
+  bottom: -10%;
+  right: -20%;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(102, 205, 170, 0.15) 0%, transparent 70%);
+  filter: blur(100px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Gradient Text Title */
+.text-gradient-evo {
+  background: linear-gradient(135deg, #3CB371 0%, #98FB98 50%, #ffffff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+  text-shadow: 0 0 40px rgba(60, 179, 113, 0.6);
+  position: relative;
+  display: inline-block;
+}
+
+/* Swiper Container */
+.evolution-swiper {
+  width: 100%;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  z-index: 2;
+  /* Content above glow */
+  overflow: visible;
+}
+
+/* Slide Styling - Card Size */
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 320px;
+  height: 500px;
+
+  /* Flex centering for content */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* 3D perspective setup handled by Swiper EffectCoverflow */
+}
+
+/* Glass Card */
+.evolution-glass-card {
+  width: 100%;
+  height: 100%;
+  background: rgba(20, 20, 20, 0.4);
+  /* Dark semi-transparent base */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.4s ease;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* Hover Effect for Card */
+.swiper-slide-active .evolution-glass-card {
+  border-color: rgba(60, 179, 113, 0.5);
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.7),
+    0 0 30px rgba(60, 179, 113, 0.2);
+}
+
+/* Image Container */
+.evo-image-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.evo-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+/* Zoom effect on image on active/hover */
+.swiper-slide-active .evo-image-container img {
+  transform: scale(1.05);
+}
+
+/* Text Overlay */
+.evo-card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  /* Gradient fade from bottom */
+  background: linear-gradient(to top, rgba(0, 3, 8, 0.95) 0%, rgba(0, 3, 8, 0.7) 30%, rgba(0, 0, 0, 0) 100%);
+  padding: 80px 20px 30px 20px;
+  /* High top padding for gradient fade */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  transform: translateY(0);
+}
+
+.evo-card-overlay h3 {
+  color: var(--primary-color);
+  font-size: 1.6rem;
+  margin-bottom: 8px;
+  font-weight: 700;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+  /* Slide up animation */
+  transform: translateY(10px);
+  opacity: 0;
+  transition: all 0.4s ease 0.1s;
+}
+
+.evo-card-overlay p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.4;
+  margin: 0;
+  /* Slide up animation */
+  transform: translateY(10px);
+  opacity: 0;
+  transition: all 0.4s ease 0.2s;
+}
+
+/* Reveal text on active slide */
+.swiper-slide-active .evo-card-overlay h3,
+.swiper-slide-active .evo-card-overlay p {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Pagination Dots - Small circular dots */
+.swiper-pagination {
+  bottom: 0px !important;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  /* Spacing between dots */
+}
+
+.swiper-pagination-bullet {
+  background: #4b5563;
+  /* Dark gray inactive */
+  opacity: 1;
+  width: 8px;
+  height: 8px;
+  margin: 0 !important;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  box-shadow: none;
+}
+
+.swiper-pagination-horizontal {
+  margin-bottom: 20px;
+}
+
+.swiper-pagination-bullet-active {
+  /* background: #3b82f6; */
+  /* Bright blue active to match reference or green if desired? Request says "baseando no slider...". Image 3 shows BLUE. I will use a class to switch later if needed, but for now I'll use blue as requested by 'reference', or better, stick to theme GREEN but match shape. */
+  /* Actually, user said 'dots e arrows ... se baseando no slider'. The slider reference has BLUE dot. 
+     USER THEME IS GREEN. 'MFIT', 'Primary Color' etc are green. 
+     It is safer to use PRIMARY COLOR (Green) for consistency, but if they specifically showed a blue dot...
+     I will use Primary Green but with the shape of the reference. */
+  background: var(--primary-color) !important;
+  width: 8px;
+  /* Keep circle scaling */
+  transform: scale(1.4);
+  /* Slight growth */
+  box-shadow: 0 0 10px var(--primary-color);
+}
+
+/* Nav Buttons - Custom Styled (Dark Left, Green Right) */
+.swiper-button-prev,
+.swiper-button-next {
+  width: 30px !important;
+  height: 30px !important;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-top: 0;
+}
+
+/* PREV Button - Dark/Gray with White Arrow */
+.swiper-button-prev {
+  /* background: rgba(30, 35, 45, 0.9); */
+  /* border: 1px solid rgba(255, 255, 255, 0.1); */
+  color: #ffffff !important;
+  left: 10px;
+  /* Adjust spacing */
+}
+
+/* NEXT Button - Green with White Arrow & Glow */
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.swiper-button-next {
+  /* background: var(--primary-color); */
+  color: #ffffff !important;
+  right: 10px;
+  /* Adjust spacing */
+  /* box-shadow: 0 0 20px rgba(60, 179, 113, 0.4); */
+  border: none;
+}
+
+.swiper-button-prev:hover {
+  /* background: rgba(50, 55, 65, 1); */
+  transform: translateY(-50%) scale(1.1);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.swiper-button-next:hover {
+  /* background: #2E8B57; */
+  /* Darker green or active state */
+  /* box-shadow: 0 0 30px rgba(60, 179, 113, 0.7); */
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .swiper-slide {
+    width: 280px;
+    height: 420px;
+  }
+
+  .evolution-swiper {
+    padding-top: 30px;
+    padding-bottom: 50px;
+  }
+
+  .evo-card-overlay h3 {
+    font-size: 1.4rem;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .evo-card-overlay p {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.swiper-wrapper {
+  height: 600px !important;
+  /* width: 800px !important; */
+}
+
+@media (min-width: 1000px) {
+  .swiper-wrapper {
+    height: 600px !important;
+    width: 800px !important;
+  }
+}
+
+.evo-image-container img {
+  filter: brightness(1.08) contrast(1.15) saturate(1.1)
+    /* Multiple drop-shadows for layered 3D glow */
+    drop-shadow(0 0 40px rgba(60, 179, 113, 0.6)) drop-shadow(0 0 80px rgba(102, 205, 170, 0.4)) drop-shadow(0 0 120px rgba(144, 238, 144, 0.3)) drop-shadow(0 20px 60px rgba(0, 0, 0, 0.5));
+}
+
+/* Darken inactive slides in Minha Evolução */
+.evolution-swiper .swiper-slide {
+  transition: all 0.5s ease;
+  filter: brightness(0.3);
+  opacity: 0.6;
+  /* Slight opacity reduction too for better contrast */
+}
+
+.evolution-swiper .swiper-slide-active {
+  filter: brightness(1);
+  opacity: 1;
+  z-index: 10;
+}
+
+/* Footer Styles */
+.footer {
+  position: relative;
+  background-color: var(--bg-color);
+  /* Match page background */
+  padding: 80px 0 30px;
+  margin-top: 100px;
+  overflow: hidden;
+  border-top: 1px solid rgba(60, 179, 113, 0.2);
+}
+
+.footer-glow-top {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 1px;
+  background: radial-gradient(circle, rgba(60, 179, 113, 0.8) 0%, transparent 70%);
+  box-shadow: 0 0 15px rgba(60, 179, 113, 0.5);
+  z-index: 1;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 60px;
+  text-align: left;
+  /* Ensure default alignment is left */
+}
+
+.footer-col h4 {
+  font-size: 1.1rem;
+  color: #fff;
+  margin-bottom: 25px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Brand Column */
+.brand-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.brand-col .footer-logo {
+  display: inline-block;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 20px;
+  letter-spacing: -1px;
+}
+
+.brand-col .footer-logo span {
+  color: var(--primary-color);
+}
+
+.brand-col .footer-desc {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  max-width: 350px;
+}
+
+/* Links Column */
+.links-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  /* Align header */
+}
+
+.links-col ul {
+  padding: 0;
+}
+
+.links-col ul li {
+  margin-bottom: 12px;
+}
+
+.links-col ul li a {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.links-col ul li a:hover {
+  color: var(--primary-color);
+  transform: translateX(5px);
+}
+
+/* Social Column */
+.social-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 15px;
+}
+
+.footer-socials a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.footer-socials a:hover {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  box-shadow: 0 0 15px rgba(60, 179, 113, 0.5);
+  transform: translateY(-3px);
+}
+
+.footer-separator {
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  margin-bottom: 30px;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-bottom p {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.footer-bottom .credits {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.footer-bottom .credits a {
+  color: var(--primary-color);
+  font-weight: 600;
+  position: relative;
+}
+
+.footer-bottom .credits a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0%;
+  height: 1px;
+  background: var(--primary-color);
+  transition: width 0.3s ease;
+}
+
+.footer-bottom .credits a:hover::after {
+  width: 100%;
+}
+
+/* Responsive Footer */
+@media (max-width: 900px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .brand-col,
+  .links-col,
+  .social-col {
+    align-items: center;
+  }
+
+  .brand-col .footer-desc {
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .footer-socials {
+    justify-content: center;
+  }
+
+  /* Reset link hover transform for center alignment */
+  .links-col ul li a:hover {
+    transform: translateX(0) scale(1.05);
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
   }
 }

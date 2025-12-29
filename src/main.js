@@ -1,4 +1,10 @@
 import './style.css'
+import Swiper from 'swiper';
+import { Navigation, Pagination, EffectCoverflow, Autoplay } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/effect-coverflow';
 
 // Mobile Menu
 const mobileMenu = document.getElementById('mobile-menu');
@@ -48,33 +54,43 @@ const animatedElements = document.querySelectorAll('.fade-in-up, .fade-in-left, 
 animatedElements.forEach(el => observer.observe(el));
 
 
-// Carousel Logic
-const track = document.getElementById('track');
-const nextBtn = document.getElementById('nextBtn');
-const prevBtn = document.getElementById('prevBtn');
-
-// Simple carousel assumption: strictly 100% width slides
-let currentIndex = 0;
-
-if (track && nextBtn && prevBtn) {
-  const slides = track.children;
-  const slideCount = slides.length;
-
-  nextBtn.addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % slideCount;
-    updateCarousel();
-  });
-
-  prevBtn.addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + slideCount) % slideCount;
-    updateCarousel();
-  });
-
-  function updateCarousel() {
-    const transformValue = `translateX(-${currentIndex * 100}%)`;
-    track.style.transform = transformValue;
+// Evolution Swiper
+// Initialize after DOM load just in case, though module type usually handles this.
+const initSwiper = () => {
+  const swiperEl = document.querySelector('.evolution-swiper');
+  if (swiperEl) {
+    new Swiper('.evolution-swiper', {
+      modules: [Navigation, Pagination, EffectCoverflow, Autoplay],
+      effect: 'coverflow',
+      grabCursor: true,
+      centeredSlides: true,
+      slidesPerView: 'auto',
+      initialSlide: 1,
+      coverflowEffect: {
+        rotate: 0,
+        stretch: 0,
+        depth: 100,
+        modifier: 2.5,
+        slideShadows: false, // Cleaner look without dark shadows often
+      },
+      loop: true,
+      autoplay: {
+        delay: 4000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
   }
-}
+};
+
+initSwiper();
 
 /* Timeline Scroll & Progress Logic */
 const timelineSection = document.querySelector('.timeline-section');
@@ -262,3 +278,21 @@ if (connectForm && connectInput && connectBtn) {
   });
 }
 
+
+/* WhatsApp Button Visibility Logic */
+const whatsappBtn = document.querySelector('.btn-whatsapp');
+const secondSection = document.getElementById('mentoria');
+
+if (whatsappBtn && secondSection) {
+  window.addEventListener('scroll', () => {
+    const sectionTop = secondSection.offsetTop;
+    // Show button when the Mentoria section enters the viewport
+    const triggerPoint = sectionTop - window.innerHeight + 100;
+
+    if (window.scrollY > triggerPoint) {
+      whatsappBtn.classList.add('show');
+    } else {
+      whatsappBtn.classList.remove('show');
+    }
+  });
+}
