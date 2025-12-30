@@ -54,14 +54,14 @@ const animatedElements = document.querySelectorAll('.fade-in-up, .fade-in-left, 
 animatedElements.forEach(el => observer.observe(el));
 
 
-// Evolution Swiper
-// Initialize after DOM load just in case, though module type usually handles this.
 const initSwiper = () => {
   const swiperEl = document.querySelector('.evolution-swiper');
   if (swiperEl) {
+    const isMobile = window.innerWidth < 768; // Check if mobile
+
     new Swiper('.evolution-swiper', {
       modules: [Navigation, Pagination, EffectCoverflow, Autoplay],
-      effect: 'coverflow',
+      effect: isMobile ? 'slide' : 'coverflow', // Use simple slide on mobile
       grabCursor: true,
       centeredSlides: true,
       slidesPerView: 'auto',
@@ -71,7 +71,7 @@ const initSwiper = () => {
         stretch: 0,
         depth: 100,
         modifier: 2.5,
-        slideShadows: false, // Cleaner look without dark shadows often
+        slideShadows: false,
       },
       loop: true,
       autoplay: {
@@ -86,6 +86,12 @@ const initSwiper = () => {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
       },
+      // Ensure observers update on resize if needed
+      on: {
+        resize: function () {
+          this.changeDirection(this.params.direction);
+        }
+      }
     });
   }
 };

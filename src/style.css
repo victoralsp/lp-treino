@@ -78,6 +78,17 @@
   fill: #fff;
 }
 
+@media (max-width: 768px) {
+  .btn-whatsapp {
+    width: 50px;
+    height: 50px;
+  }
+  .btn-whatsapp svg {
+    width: 25px;
+    height: 25px;
+  }
+}
+
 @keyframes pulse-whatsapp {
   0% {
     box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
@@ -239,6 +250,28 @@ p {
   font-weight: 800;
   text-shadow: 0 0 30px rgba(51, 99, 255, 0.4);
   animation: shimmer 5s linear infinite;
+}
+
+.text-gradient-shine {
+  background: linear-gradient(to right, #ffffff 20%, #86efa6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.feature-icon {
+  width: 48px;
+  height: 48px;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  filter: drop-shadow(0 0 10px rgba(60, 179, 113, 0.4));
+  transition: transform 0.3s ease;
+}
+
+.feature-item:hover .feature-icon {
+  transform: scale(1.1) rotate(5deg);
+  color: var(--primary-glow);
 }
 
 @keyframes shimmer {
@@ -733,18 +766,30 @@ p {
   height: auto;
   max-width: 500px;
   border-radius: 20px;
-  transform: scaleX(-1);
+  /* transform: scaleX(-1); */
   position: relative;
   z-index: 1;
 
+  /* MFit Card Effect */
+  border: 1px solid rgba(60, 179, 113, 0.3);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    box-shadow 0.4s ease,
+    border-color 0.4s ease;
+
   /* Multiple filters for premium look */
-  filter:
+  /* filter:
     brightness(1.08) contrast(1.15) saturate(1.1)
-    /* Multiple drop-shadows for layered 3D glow */
-    drop-shadow(0 0 40px rgba(60, 179, 113, 0.6)) drop-shadow(0 0 80px rgba(102, 205, 170, 0.4)) drop-shadow(0 0 120px rgba(144, 238, 144, 0.3)) drop-shadow(0 20px 60px rgba(0, 0, 0, 0.5));
+    drop-shadow(0 0 40px rgba(60, 179, 113, 0.6)) drop-shadow(0 0 80px rgba(102, 205, 170, 0.4)) drop-shadow(0 0 120px rgba(144, 238, 144, 0.3)) drop-shadow(0 20px 60px rgba(0, 0, 0, 0.5)); */
 
   /* Animated glow effect */
-  animation: image-glow-pulse 3s ease-in-out infinite;
+  /* animation: image-glow-pulse 3s ease-in-out infinite; */
+}
+
+.hero-image:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 30px 60px rgba(60, 179, 113, 0.3);
+  border-color: var(--primary-glow);
 }
 
 /* Pulsing glow animation on the image */
@@ -900,13 +945,12 @@ p {
   }
 
   .hero-image {
-    width: 80%;
+    width: 100%;
     height: 100%;
     max-width: none;
     object-fit: contain;
     object-position: top center;
-    padding-top: 30px;
-    transform: scaleX(1);
+    transform: scaleX(1) rotateY(-180deg);
     /* Slight offset from top to avoid header overlap if needed, or 0 if it should be behind */
     /* mask-image: linear-gradient(to bottom, black 80%, transparent 100%); */
     /* -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%); */
@@ -1812,6 +1856,33 @@ p {
   display: flex;
   flex-direction: column;
   gap: 15px;
+  position: relative;
+  z-index: 1;
+}
+
+.faq-watermark {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12rem;
+  font-weight: 900;
+  line-height: 1;
+  background: linear-gradient(180deg, rgba(60, 179, 113, 0.5) 0%, rgba(60, 179, 113, 0) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0.3;
+  pointer-events: none;
+  z-index: 0;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .faq-watermark {
+    font-size: 6rem;
+    top: -10px;
+  }
 }
 
 .faq-item {
@@ -2367,7 +2438,7 @@ details[open] summary::after {
 .personal-landing-section {
   position: relative;
   width: 100%;
-  padding: 0px 20px 40px 20px;
+  padding: 20px 20px 40px 20px;
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -2447,6 +2518,16 @@ details[open] summary::after {
   align-items: center;
 }
 
+@media (max-width: 600px) {
+  .pl-avatar-container {
+    max-width: none;
+  }
+
+  .hero-image-wrapper {
+    transform: scale(1.02);
+  }
+}
+
 /* Remove ring */
 .pl-avatar-container::before {
   content: none;
@@ -2470,19 +2551,25 @@ details[open] summary::after {
   width: 100%;
   height: auto;
   border-radius: 12px;
-  border: none;
+  /* border: none; */
   /* box-shadow:
     0 20px 50px rgba(0, 0, 0, 0.5),
     0 0 0 1px rgba(0, 0, 0, 0.5); */
   object-fit: cover;
   z-index: 10;
-  transition: all 0.5s ease;
+
+  /* MFit Card Effect */
+  border: 1px solid rgba(60, 179, 113, 0.3);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, border-color 0.4s ease;
 
   filter: brightness(1.1) contrast(1.15) saturate(1.1);
 }
 
 .pl-avatar-image:hover {
-  transform: scale(1.02) translateY(-10px);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 30px 60px rgba(60, 179, 113, 0.3);
+  border-color: var(--primary-glow);
 }
 
 .pl-title {
@@ -3000,10 +3087,13 @@ details[open] summary::after {
 /* Swiper Container */
 .evolution-swiper {
   width: 100%;
-  padding-top: 60px;
+  max-width: 700px;
+  /* Restrict width to bring arrows closer */
+  margin: 0 auto;
+  /* Center the slider */
+  padding-top: 40px;
   padding-bottom: 60px;
   z-index: 2;
-  /* Content above glow */
   overflow: visible;
 }
 
@@ -3062,8 +3152,8 @@ details[open] summary::after {
 }
 
 /* Zoom effect on image on active/hover */
-.swiper-slide-active .evo-image-container img {
-  transform: scale(1.05);
+.swiper-slide-active .evo-image-container img:hover {
+  transform: scale(1.08);
 }
 
 /* Text Overlay */
@@ -3172,7 +3262,9 @@ details[open] summary::after {
   /* background: rgba(30, 35, 45, 0.9); */
   /* border: 1px solid rgba(255, 255, 255, 0.1); */
   color: #ffffff !important;
-  left: 10px;
+  color: #ffffff !important;
+  left: -50px;
+  /* Position outside the narrow container */
   /* Adjust spacing */
 }
 
@@ -3186,10 +3278,9 @@ details[open] summary::after {
 .swiper-button-next {
   /* background: var(--primary-color); */
   color: #ffffff !important;
-  right: 10px;
-  /* Adjust spacing */
-  /* box-shadow: 0 0 20px rgba(60, 179, 113, 0.4); */
   border: none;
+  right: -50px;
+  /* Position outside the narrow container */
 }
 
 .swiper-button-prev:hover {
@@ -3229,36 +3320,39 @@ details[open] summary::after {
   }
 }
 
-.swiper-wrapper {
-  height: 600px !important;
-  /* width: 800px !important; */
-}
+/* Removed user's custom wrapper sizing */
+/* .swiper-wrapper { ... } */
 
-@media (min-width: 1000px) {
-  .swiper-wrapper {
-    height: 600px !important;
-    width: 800px !important;
-  }
-}
-
+/* Darken inactive slides in Minha Evolução */
 .evo-image-container img {
-  filter: brightness(1.08) contrast(1.15) saturate(1.1)
-    /* Multiple drop-shadows for layered 3D glow */
-    drop-shadow(0 0 40px rgba(60, 179, 113, 0.6)) drop-shadow(0 0 80px rgba(102, 205, 170, 0.4)) drop-shadow(0 0 120px rgba(144, 238, 144, 0.3)) drop-shadow(0 20px 60px rgba(0, 0, 0, 0.5));
+  /* Simpler filter for mobile default */
+  filter: brightness(1.1) contrast(1.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+@media (min-width: 768px) {
+  .evo-image-container img {
+    filter: brightness(1.08) contrast(1.15) saturate(1.1)
+      /* Multiple drop-shadows for layered 3D glow ONLY on desktop */
+      drop-shadow(0 0 40px rgba(60, 179, 113, 0.6)) drop-shadow(0 0 80px rgba(102, 205, 170, 0.4)) drop-shadow(0 0 120px rgba(144, 238, 144, 0.3)) drop-shadow(0 20px 60px rgba(0, 0, 0, 0.5));
+  }
 }
 
 /* Darken inactive slides in Minha Evolução */
 .evolution-swiper .swiper-slide {
   transition: all 0.5s ease;
-  filter: brightness(0.3);
-  opacity: 0.6;
-  /* Slight opacity reduction too for better contrast */
+  filter: brightness(0.5);
+  /* Darken slightly if it fades in/out */
+  opacity: 0 !important;
+  /* Hide inactive slides completely */
+  pointer-events: none;
 }
 
 .evolution-swiper .swiper-slide-active {
   filter: brightness(1);
-  opacity: 1;
+  opacity: 1 !important;
   z-index: 10;
+  pointer-events: auto;
 }
 
 /* Footer Styles */
@@ -3466,5 +3560,72 @@ details[open] summary::after {
   .footer-bottom {
     flex-direction: column;
     text-align: center;
+  }
+}
+
+/* Why Choose Section */
+.why-choose {
+  position: relative;
+  overflow: hidden;
+}
+
+.why-choose-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1000px;
+  height: 1000px;
+  background: radial-gradient(circle, rgba(60, 179, 113, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  position: relative;
+  z-index: 1;
+}
+
+.feature-item {
+  background: rgba(10, 10, 10, 0.11);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.068);
+  border-radius: 20px;
+  padding: 40px 30px;
+  text-align: center;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+}
+
+.feature-item:hover {
+  transform: translateY(-5px);
+  border-color: var(--primary-color);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.feature-item h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #fff;
+}
+
+.feature-item p {
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin: 0 auto;
   }
 }
