@@ -629,6 +629,43 @@ p {
   text-align: left;
 }
 
+/* Hero Animations */
+@keyframes heroSlideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes heroSlideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes heroFadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .hero-title {
   font-size: var(--font-h1);
   font-weight: 800;
@@ -636,6 +673,10 @@ p {
   color: #ffffff;
   margin-bottom: 30px;
   letter-spacing: -1px;
+  /* Animation: Slide in from Left */
+  opacity: 0;
+  animation: heroSlideInLeft 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  animation-delay: 0.2s;
 }
 
 /* Blue Gradient Text */
@@ -667,6 +708,10 @@ p {
   color: rgba(255, 255, 255, 0.7);
   margin-bottom: 40px;
   max-width: 600px;
+  /* Animation: Fade In Up */
+  opacity: 0;
+  animation: heroFadeInUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  animation-delay: 0.4s;
 }
 
 /* CTA Section */
@@ -675,6 +720,10 @@ p {
   flex-direction: column;
   gap: 15px;
   align-items: flex-start;
+  /* Animation: Fade In Up */
+  opacity: 0;
+  animation: heroFadeInUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  animation-delay: 0.6s;
 }
 
 .btn-hero-primary {
@@ -730,6 +779,17 @@ p {
   justify-content: center;
   height: 600px;
   perspective: 1000px;
+  opacity: 1;
+  /* Default visible on mobile */
+}
+
+@media (min-width: 1024px) {
+  .hero-image-container {
+    opacity: 0;
+    /* Hidden initially for animation on desktop */
+    animation: heroSlideInRight 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    animation-delay: 0.2s;
+  }
 }
 
 /* Remove background glows - they are now on the image */
@@ -1357,6 +1417,250 @@ p {
   display: none;
 }
 
+/* Who Is Section Animations */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.who-is-animate {
+  opacity: 0;
+  /* Hidden initially */
+}
+
+/* Mobile: Slide from Left - Slower & Smoother */
+.who-is-animate.in-view {
+  animation: slideInLeft 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* Desktop: Fade In with Opacity - Slower & Smoother */
+@media (min-width: 1024px) {
+  .who-is-animate.in-view {
+    animation: fadeIn 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    transform: none;
+    /* Reset transform if any */
+  }
+}
+
+/* H2 Animation: Fade In Up */
+@keyframes fadeInUpSmooth {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-h2 {
+  opacity: 0;
+}
+
+.animate-h2.in-view {
+  animation: fadeInUpSmooth 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.animate-card {
+  opacity: 0;
+}
+
+.animate-card.in-view {
+  animation: fadeIn 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* Pricing Card Animations */
+.animate-plan {
+  opacity: 0;
+}
+
+/* Mobile: Default Slide In Left */
+@media (max-width: 1023px) {
+  .animate-plan.in-view {
+    animation: slideInLeft 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  }
+}
+
+/* Desktop: Split from Center */
+@media (min-width: 1024px) {
+  .animate-plan:nth-child(1).in-view {
+    animation: slideFromCenterLeft 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  }
+
+  .animate-plan:nth-child(2).in-view {
+    animation: fadeIn 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  }
+
+  .animate-plan:nth-child(3).in-view {
+    animation: slideFromCenterRight 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  }
+}
+
+@keyframes slideFromCenterLeft {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideFromCenterRight {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Steps Animation: Sequential Slide In Left */
+.animate-step {
+  opacity: 0;
+}
+
+.animate-step.in-view {
+  animation: slideInLeft 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* Staggered Delays for Steps */
+.animate-step:nth-child(1).in-view {
+  animation-delay: 0.1s;
+}
+
+.animate-step:nth-child(2).in-view {
+  animation-delay: 0.2s;
+}
+
+.animate-step:nth-child(3).in-view {
+  animation-delay: 0.3s;
+}
+
+.animate-step:nth-child(4).in-view {
+  animation-delay: 0.4s;
+}
+
+.animate-step:nth-child(5).in-view {
+  animation-delay: 0.5s;
+}
+
+/* Features Animation: Slide In Right */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-right {
+  opacity: 0;
+}
+
+.animate-slide-right.in-view {
+  animation: slideInRight 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.animate-slide-right:nth-child(1).in-view {
+  animation-delay: 0.1s;
+}
+
+.animate-slide-right:nth-child(2).in-view {
+  animation-delay: 0.2s;
+}
+
+.animate-slide-right:nth-child(3).in-view {
+  animation-delay: 0.3s;
+}
+
+
+/* Generic Fade Up Animation */
+.animate-fade-up {
+  opacity: 0;
+}
+
+.animate-fade-up.in-view {
+  animation: fadeInUpSmooth 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* FAQ Animation: Sequential Fade In Up */
+.animate-faq {
+  opacity: 0;
+}
+
+.animate-faq.in-view {
+  animation: fadeInUpSmooth 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.animate-faq:nth-child(1).in-view {
+  animation-delay: 0.1s;
+}
+
+.animate-faq:nth-child(2).in-view {
+  animation-delay: 0.2s;
+}
+
+.animate-faq:nth-child(3).in-view {
+  animation-delay: 0.3s;
+}
+
+.animate-faq:nth-child(4).in-view {
+  animation-delay: 0.4s;
+}
+
+.animate-faq:nth-child(5).in-view {
+  animation-delay: 0.5s;
+}
+
+
+/* About Me Section Animations */
+.animate-slide-left {
+  opacity: 0;
+}
+
+.animate-slide-left.in-view {
+  animation: slideInLeft 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.animate-fade-in {
+  opacity: 0;
+}
+
+.animate-fade-in.in-view {
+  animation: fadeIn 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* Delays removed for scroll-trigger logic */
+
 /* Timeline Benefits Section */
 /* Timeline Benefits Section */
 .timeline-section {
@@ -1966,30 +2270,7 @@ details[open] summary::after {
 }
 
 /* Animations */
-.fade-in {
-  opacity: 0;
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.fade-in-up {
-  opacity: 0;
-  transform: translateY(40px);
-}
-
-.fade-in-left {
-  opacity: 0;
-  transform: translateX(-40px);
-}
-
-.fade-in-right {
-  opacity: 0;
-  transform: translateX(40px);
-}
-
-.visible {
-  opacity: 1;
-  transform: translate(0, 0);
-}
+/* Animations Removed */
 
 @media (max-width: 900px) {
 
