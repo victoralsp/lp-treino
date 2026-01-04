@@ -83,6 +83,7 @@
     width: 50px;
     height: 50px;
   }
+
   .btn-whatsapp svg {
     width: 25px;
     height: 25px;
@@ -388,6 +389,10 @@ p {
 @media screen and (max-width: 500px) {
   .logo {
     font-size: 1.5rem !important;
+  }
+
+  .testimonials-marquee-section {
+    padding: 40px 0 80px 0!important;
   }
 }
 
@@ -959,7 +964,7 @@ p {
   .hero-image:hover {
     transform: scaleX(1) rotateY(-180deg);
   }
-  
+
 
   .hero-image-fade-overlay {
     height: 90%;
@@ -1997,8 +2002,8 @@ details[open] summary::after {
 /* Social Proof / Testimonials Section */
 /* Social Proof / Testimonials Section */
 /* Evolution Slider Section */
-/* Evolution Slider Section (3D) */
-.evolution-3d-section {
+/* Evolution Slider Section (Standard) */
+.evolution-section {
   position: relative;
   background-color: var(--bg-color);
   overflow: hidden;
@@ -2020,8 +2025,13 @@ details[open] summary::after {
 }
 
 .evolution-title {
+  /* Matching standard subtitles/titles sizing */
   font-size: 2.5rem;
-  font-weight: 600;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+  /* Remove gradient if user wants standard look, but keeping it premium */
   background: linear-gradient(to right, #ffffff, var(--primary-color));
   -webkit-background-clip: text;
   background-clip: text;
@@ -2031,217 +2041,165 @@ details[open] summary::after {
   position: relative;
 }
 
-.highlight-text {
-  color: var(--primary-glow);
-  text-shadow: 0 0 20px rgba(60, 179, 113, 0.4);
+.evolution-section .section-header {
+  margin-bottom: 40px !important;
+  /* Spacing between text and slider */
 }
 
-.evo-3d-layout {
-  display: grid;
-  grid-template-columns: 1.5fr 1fr;
-  gap: 60px;
-  max-width: 1400px;
-  margin: 40px auto 0;
-  align-items: center;
-  position: relative;
-  z-index: 1;
-}
 
-/* 3D Stack Container */
-/* 3D Stack Container */
-.evo-stack-container {
-  position: relative;
+/* Swiper Customization */
+.evolution-swiper {
   width: 100%;
-  max-width: 1050px;
-  height: 480px;
-  perspective: 1000px;
-  margin: 0 auto;
+  padding-bottom: 60px;
+  /* Space for pagination */
+  padding-left: 20px;
+  padding-right: 20px;
+  position: relative;
+  overflow: visible;
 }
 
-.evo-stack-card {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 24px;
-  transform-origin: bottom center;
-  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-  opacity: 0;
-  transform: scale(0.9) rotateY(10deg) translateZ(-100px);
+@media (min-width: 768px) {
+  .evolution-swiper {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
 }
 
-/* Premium Card Style */
-.evo-card-inner {
+.evolution-swiper .swiper-slide {
+  width: auto;
   display: flex;
-  width: 100%;
-  height: 100%;
-  border-radius: 15px;
+  justify-content: center;
+}
+
+.evolution-card {
+  position: relative;
+  border-radius: 20px;
   overflow: hidden;
-  border: 1px solid rgba(60, 179, 113, 0.2);
-  box-shadow:
-    0 15px 35px -5px rgba(0, 0, 0, 0.6),
-    0 0 15px rgba(60, 179, 113, 0.1);
-  background: #0f172a;
-  position: relative;
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(60, 179, 113, 0.3);
+  max-width: 800px;
+  width: 100%;
 }
 
-/* Separator Line */
-.evo-card-inner::after {
-  content: '';
-  position: absolute;
-  top: 10%;
-  bottom: 10%;
-  left: 50%;
-  width: 2px;
-  background: linear-gradient(to bottom, transparent, var(--primary-color), transparent);
-  box-shadow: 0 0 10px var(--primary-color);
-  z-index: 10;
-  transform: translateX(-50%);
-  opacity: 0.6;
+.evolution-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
 }
 
-.evo-img-half {
-  flex: 1;
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  transition: transform 0.5s ease;
-}
-
-/* Label Styling */
 .evo-lbl {
   position: absolute;
-  bottom: 15px;
+  bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(0, 0, 0, 0.6);
-  color: rgba(255, 255, 255, 0.9);
-  padding: 4px 12px;
-  border-radius: 12px;
-  font-size: 0.65rem;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 6px 18px;
+  border-radius: 30px;
+  font-size: 0.85rem;
   font-weight: 700;
   text-transform: uppercase;
   backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  letter-spacing: 0.5px;
-  z-index: 5;
-  transition: all 0.3s ease;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
 }
 
-/* Hover effects for active card (handled by parent class usually, but basic hover here) */
-.evo-stack-card:hover .evo-lbl {
-  background: var(--primary-color);
+/* Navigation Arrows - Custom Styling */
+.evolution-swiper .swiper-button-next,
+.evolution-swiper .swiper-button-prev {
   color: #fff;
-  border-color: transparent;
-  box-shadow: 0 0 10px var(--primary-glow);
-}
-
-.evo-stack-card:hover .evo-img-half {
-  filter: brightness(1.1);
-}
-
-/* Right Content */
-.evo-content-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  padding-left: 0;
-}
-
-.evo-text-wrapper {
-  margin-bottom: 30px;
-  min-height: 140px;
-}
-
-.evo-name-title {
-  font-size: 2rem;
-  color: #fff;
-  margin-bottom: 4px;
-  font-weight: 800;
-  background: linear-gradient(120deg, #fff, #94a3b8);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
-}
-
-.evo-role-text {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  text-transform: lowercase;
-  letter-spacing: 2px;
-  margin-bottom: 20px;
-  font-weight: 600;
-  text-shadow: none;
-}
-
-.evo-desc-text {
-  font-size: 1rem;
-  color: #9ca3af;
-  line-height: 1.5;
-  font-weight: 400;
-  font-style: normal;
-  border-left: none;
-  padding-left: 0;
-  background: none;
-  padding: 0;
-  border-radius: 0;
-}
-
-/* Controls */
-.evo-controls-3d {
-  display: flex;
-  gap: 15px;
-}
-
-.evo-btn-3d {
-  width: 40px;
-  height: 40px;
+  background: rgba(255, 255, 255, 0.05);
+  /* Glass effect */
+  width: 55px;
+  height: 55px;
   border-radius: 50%;
-  background: rgba(30, 41, 59, 0.8);
+  backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #fff;
+  transition: all 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  backdrop-filter: blur(5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-.evo-btn-3d:hover {
+/* Remove default Swiper arrow icons since we added SVGs */
+.evolution-swiper .swiper-button-next:after,
+.evolution-swiper .swiper-button-prev:after {
+  content: none;
+}
+
+.evolution-swiper .swiper-button-next:hover,
+.evolution-swiper .swiper-button-prev:hover {
   background: var(--primary-color);
   border-color: var(--primary-color);
-  transform: scale(1.1);
-  box-shadow: 0 0 15px var(--primary-glow);
+  color: #fff;
+  box-shadow: 0 0 20px rgba(60, 179, 113, 0.6);
+  /* transform: scale(1.1); */
 }
 
-.evo-btn-3d svg {
-  width: 18px;
-  height: 18px;
+.evolution-swiper .swiper-button-next svg,
+.evolution-swiper .swiper-button-prev svg {
+  width: 24px;
+  height: 24px;
+  stroke-width: 2.5;
 }
 
-/* Responsive */
-@media (max-width: 900px) {
-  .evo-3d-layout {
-    grid-template-columns: 1fr;
-    gap: 40px;
+/* Position arrows */
+.evolution-swiper .swiper-button-prev,
+.evolution-swiper .swiper-button-next {
+  top: 55% !important;
+  /* Visually centered on image (compensating for bottom padding) */
+  transform: translateY(-50%);
+  margin-top: 0;
+  position: absolute;
+  z-index: 10;
+}
+
+.evolution-swiper .swiper-button-prev {
+  left: 10px;
+}
+
+.evolution-swiper .swiper-button-next {
+  right: 10px;
+}
+
+@media (min-width: 1024px) {
+
+  /* Push outside if space permits, or keep inside edge */
+  .evolution-swiper .swiper-button-prev {
+    left: 0px;
   }
 
-  .evo-stack-container {
-    height: 350px;
-    /* max-width: 350px; */
-    margin: 0 auto;
-  }
-
-  .evo-content-container {
-    align-items: center;
-    text-align: center;
+  .evolution-swiper .swiper-button-next {
+    right: 0px;
   }
 }
+
+/* Pagination Dots */
+.evolution-swiper .swiper-pagination-bullet {
+  background: #fff;
+  opacity: 0.2;
+  width: 12px;
+  height: 12px;
+  margin: 0 6px !important;
+  transition: all 0.3s ease;
+}
+
+.evolution-swiper .swiper-pagination-bullet-active {
+  background: var(--primary-color);
+  opacity: 1;
+  width: 30px;
+  border-radius: 6px;
+  box-shadow: 0 0 10px var(--primary-glow);
+}
+
+.evolution-swiper .swiper-pagination {
+  bottom: 0px;
+}
+
+/* Testimonials Marquee Section */
 
 /* Testimonials Marquee Section */
 .testimonials-marquee-section {
