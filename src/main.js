@@ -5,6 +5,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-coverflow';
+import './video-facade.css';
 
 // Mobile Menu
 const mobileMenu = document.getElementById('mobile-menu');
@@ -193,5 +194,27 @@ if (whatsappBtn && secondSection) {
     } else {
       whatsappBtn.classList.remove('show');
     }
+  });
+}
+
+/* Video Facade Logic */
+const videoFacade = document.querySelector('.video-facade');
+if (videoFacade) {
+  videoFacade.addEventListener('click', function () {
+    const videoId = this.dataset.videoId;
+    if (!videoId) return;
+
+    // Create iframe
+    const iframe = document.createElement('iframe');
+    iframe.setAttribute('src', `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`);
+    iframe.setAttribute('title', 'Vídeo explicativo MFIT');
+    iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+    iframe.setAttribute('allowfullscreen', '');
+    iframe.classList.add('mfit-video-iframe');
+
+    // Clear content and append iframe
+    this.innerHTML = '';
+    this.appendChild(iframe);
+    this.classList.add('is-playing'); // Optional class for styling
   });
 }
