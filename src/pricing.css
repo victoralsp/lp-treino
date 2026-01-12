@@ -67,6 +67,17 @@
     line-height: 1.6;
 }
 
+.pricing-discount-text {
+    font-size: 0.9rem;
+    color: var(--primary-glow);
+    /* Green glow instead of red */
+    font-weight: 600;
+    margin-top: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.9;
+}
+
 /* Grid */
 .pricing-grid {
     display: grid;
@@ -192,6 +203,17 @@
     align-items: baseline;
     gap: 4px;
     color: #fff;
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: #94a3b8;
+    /* slate-400 */
+    font-size: 0.85rem;
+    font-weight: 400;
+    margin-bottom: -10px;
+    /* pull closer to main price */
+    display: block;
 }
 
 .price-currency {
